@@ -2,6 +2,21 @@
 ####     Intel      ####
 ########################
 
+# NOTE:  Josh is working on updating/fixing this...  
+# See policies.md, Intel recommends the Eds_v4-series running on the 3rd Generation Intel® Xeon® Platinum 8370C (Ice Lake), the Intel® Xeon® Platinum 8272CL (Cascade Lake) processors.
+# General Purpose: GP_Standard_E2ds_v4, GP_Standard_E4ds_v4, GP_Standard_E8ds_v4, GP_Standard_E16ds_v4, GP_Standard_E20ds_v4, GP_Standard_E32ds_v4,GP_Standard_E48ds_v4, GP_Standard_E64ds_v4
+# Memory Optimized: MO_Standard_E2ds_v4, MO_Standard_E4ds_v4, MO_Standard_E8ds_v4, MO_Standard_E16ds_v4, MO_Standard_E20ds_v4, MO_Standard_E32ds_v4,MO_Standard_E48ds_v4, MO_Standard_E64ds_v4
+# The number between E and d in MO_Standard_E8ds_v4 stands for vCores. 
+# Ex.: MO_Standard_E8ds_v4-> 8 stands for vCPU count
+# See more:
+# https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-compute-storage
+
+variable "db_server_sku" {
+  description = "Instance SKU, see comments above for guidance"
+  type        = string
+  default     = "MO_Standard_E8ds_v4"
+}
+
 ########################
 ####    Required    ####
 ########################
