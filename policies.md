@@ -12,7 +12,7 @@ This file documents the HashiCorp Sentinel policies that apply to this module
 
 ## Policy 1
 
-Description: The configured "sku_name" should be an Intel Xeon 3rd Generation(code-named Ice Lake) Scalable processors
+Description: The configured "instance_type" should be an Intel Xeon 3rd Generation(code-named Ice Lake) Scalable processors
 
 Resource type: aws_instance
 
