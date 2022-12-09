@@ -10,9 +10,11 @@
 
 ## Module name
 
+AWS Instance Types
+
 ## Usage
 
-See examples folder for code ./examples/intel-optimized-postgresql-server/main.tf
+See examples folder for code ./examples/module-example-1/main.tf
 
 Example of main.tf
 
