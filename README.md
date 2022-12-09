@@ -14,25 +14,19 @@ AWS Instance Types
 
 ## Usage
 
-See examples folder for code ./examples/module-example-1/main.tf
+See examples folder for code ./examples/amazon-linux-ec2-default-vpc/main.tf
 
 Example of main.tf
 
-```hcl
-# Example of how to pass variable for database password:
-# terraform apply -var="db_password=..."
-# Environment variables can also be used https://www.terraform.io/language/values/variables#environment-variables
-
-# Provision Intel Cloud Optimization Module
-module "module-example" {
-  source = "github.com/intel/module-name"
+module "ec2-vm" {
+  source = "../../"
+  tags = {
+    Name     = "my-test-vm-${random_id.rid.dec}"
+    Owner    = "OwnerName-${random_id.rid.dec}",
+    Duration = "2"
+  }
 }
 
-```
-
-Run Terraform
-
-```hcl
 terraform init  
 terraform plan
 terraform apply
