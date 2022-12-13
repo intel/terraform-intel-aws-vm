@@ -18,6 +18,7 @@ See examples folder for code ./examples/amazon-linux-ec2-default-vpc/main.tf
 
 Example of main.tf
 
+``` hcl
 module "ec2-vm" {
   source = "../../"
   tags = {
@@ -26,7 +27,8 @@ module "ec2-vm" {
     Duration = "2"
   }
 }
-
+``` 
+``` hcl
 terraform init  
 terraform plan
 terraform apply
