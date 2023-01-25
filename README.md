@@ -8,9 +8,9 @@
 
 © Copyright 2022, Intel Corporation
 
-## Module name
+## AWS VM module
 
-AWS Instance Types
+Configuration in this directory creates an AWS VM (Instance).   The instance is created on an Intel Icelakde instance by default.  
 
 ## Usage
 
