@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/OTCShare2/terraform-intel-hashicorp/blob/main/images/logo-classicblue-800px.png?raw=true" alt="Intel Logo" width="250"/>
+  <img src="https://github.com/intel/terraform-intel-aws-vm/images/logo-classicblue-800px.png?raw=true" alt="Intel Logo" width="250"/>
 </p>
 
 # Intel Cloud Optimization Modules for Terraform
@@ -61,7 +61,7 @@ resource "aws_security_group" "ssh_security_group" {
 }
 
 module "ec2-vm" {
-  source   = "../../"
+  source   = "intel/aws-vm/intel"
   create_spot_instance = true
   spot_wait_for_fulfillment = true
   key_name = aws_key_pair.TF_key.key_name

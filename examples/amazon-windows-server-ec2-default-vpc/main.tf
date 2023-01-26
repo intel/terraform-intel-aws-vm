@@ -46,7 +46,7 @@ resource "aws_network_interface_sg_attachment" "sg_attachment" {
 }
 
 module "ec2-vm" {
-  source   = "../../"
+  source   = "intel/aws-vm/intel"
   ami      = "ami-06371c9f2ad704460"
   key_name = "TF_key"
   tags = {

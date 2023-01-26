@@ -14,11 +14,11 @@
 
 # Create capacity reservation for EC2
 resource "aws_ec2_capacity_reservation" "thiscapacity" {
-  instance_type     = "m6i.large"
-  instance_platform = "Linux/UNIX"
-  availability_zone = "us-east-1d"
+  instance_type           = "m6i.large"
+  instance_platform       = "Linux/UNIX"
+  availability_zone       = "us-east-1d"
   instance_match_criteria = "targeted"
-  instance_count    = 1
+  instance_count          = 1
 }
 
 resource "random_id" "rid" {
@@ -60,7 +60,7 @@ resource "aws_network_interface_sg_attachment" "sg_attachment" {
 }
 
 module "ec2-vm" {
-  source   = "../../"
+  source   = "intel/aws-vm/intel"
   key_name = "TF_key"
   capacity_reservation_specification = {
     capacity_reservation_target = {
