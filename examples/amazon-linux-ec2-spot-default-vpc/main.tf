@@ -39,9 +39,9 @@ resource "aws_security_group" "ssh_security_group" {
 }
 
 module "ec2-vm" {
-  source   = "../../"
-  create_spot_instance = true
+  source                    = "intel/aws-vm/intel"
+  create_spot_instance      = true
   spot_wait_for_fulfillment = true
-  key_name = aws_key_pair.TF_key.key_name
-  vpc_security_group_ids = [aws_security_group.ssh_security_group.id]
+  key_name                  = aws_key_pair.TF_key.key_name
+  vpc_security_group_ids    = [aws_security_group.ssh_security_group.id]
 }

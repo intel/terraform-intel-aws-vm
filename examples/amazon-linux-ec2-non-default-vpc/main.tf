@@ -60,7 +60,7 @@ resource "aws_network_interface_sg_attachment" "sg_attachment" {
 }
 
 module "ec2-vm" {
-  source    = "../../"
+  source    = "intel/aws-vm/intel"
   key_name  = "TF_key"
   subnet_id = data.aws_subnets.vpc_subnets.ids[0]
   tags = {

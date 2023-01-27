@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/OTCShare2/terraform-intel-hashicorp/blob/main/images/logo-classicblue-800px.png?raw=true" alt="Intel Logo" width="250"/>
+  <img src="https://github.com/intel/terraform-intel-aws-vm/images/logo-classicblue-800px.png?raw=true" alt="Intel Logo" width="250"/>
 </p>
 
 # Intel Cloud Optimization Modules for Terraform
@@ -82,7 +82,7 @@ resource "aws_network_interface_sg_attachment" "sg_attachment" {
 }
 
 module "ec2-vm" {
-  source    = "../../"
+  source    = "intel/aws-vm/intel"
   key_name  = "TF_key"
   subnet_id = data.aws_subnets.vpc_subnets.ids[0]
   tags = {
