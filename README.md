@@ -10,7 +10,7 @@
 
 ## AWS VM module
 
-Configuration in this directory creates an AWS VM (Instance).   The instance is created on an 3rd Generation Intel® Xeon® Scalable Processor by default.  
+Configuration in this directory creates an AWS VM (Instance).   The instance is created on an 3rd Generation Intel® Xeon® Scalable Processor(IceLake) by default.  
 
 ## Usage
 
