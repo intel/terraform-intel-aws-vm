@@ -12,7 +12,7 @@ This file documents the HashiCorp Sentinel policies that apply to this module
 
 ## Policy 1
 
-Description: The configured "instance_type" should be Intel Xeon 3rd Generation(code-named Ice Lake) and Intel Xeon 4th Generation(code-named Sapphire Rapids) Scalable processors
+Description: The configured "instance_type" should be Intel Xeon 4th Generation(code-named Sapphire Rapids) Scalable processors and Intel Xeon 3rd Generation(code-named Ice Lake).
 
 Resource type: aws_instance
 
