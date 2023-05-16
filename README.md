@@ -12,6 +12,116 @@
 
 Configuration in this directory creates an AWS VM (Instance).   The instance is created on an 3rd Generation Intel® Xeon® Scalable Processor(IceLake) by default.  
 
+## Performance Data
+
+
+<center>
+
+#### Find all the information below plus even more by navigating our full library
+#### [INTEL CLOUD PERFROMANCE DATA LIBRARY for AWS](https://www.intel.com/content/www/us/en/developer/topic-technology/cloud/library.html?f:@stm_10381_en=%5BAmazon%20Web%20Services%5D)
+
+#
+
+#### [Achieve up to 1.79x higher HPC STREAM Triad throughput on 3rd Generation Intel® Xeon® Scalable Processor (Ice Lake) vs. AMD EPYC](https://www.intel.com/content/www/us/en/content-details/755391/choose-amazon-ec2-m6i-instances-featuring-3rd-gen-intel-xeon-scalable-processors-to-increase-hpc-performance.html)
+
+<p align="center">
+  <a href="https://www.intel.com/content/www/us/en/content-details/755391/choose-amazon-ec2-m6i-instances-featuring-3rd-gen-intel-xeon-scalable-processors-to-increase-hpc-performance.html">
+  <img src="https://github.com/intel/terraform-intel-aws-vm/blob/main/images/aws-vm-1.png?raw=true" alt="Link" width="600"/>
+  </a>
+</p>
+
+#
+
+#### [Achieve up to 1.46x more SQL Server performance on 3rd Generation Intel® Xeon® Scalable Processor (Ice Lake) vs. previous generation](https://www.intel.com/content/www/us/en/content-details/766471/improve-microsoft-sql-server-performance-with-amazon-ec2-i4i-instances-featuring-3rd-gen-intel-xeon-scalable-processors.html)
+
+<p align="center">
+  <a href="https://www.intel.com/content/www/us/en/content-details/766471/improve-microsoft-sql-server-performance-with-amazon-ec2-i4i-instances-featuring-3rd-gen-intel-xeon-scalable-processors.html">
+  <img src="https://github.com/intel/terraform-intel-aws-vm/blob/main/images/aws-vm-2.png?raw=true" alt="Link" width="600"/>
+  </a>
+</p>
+
+#
+
+#### [Up to 1.79 times better Java Server performance on 3rd Generation Intel® Xeon® Scalable Processor (Ice Lake) vs. AMD EPYC](https://www.intel.com/content/www/us/en/content-details/766271/for-up-to-1-79-times-the-java-server-performance-choose-aws-ec2-c6i-instances-featuring-3rd-gen-intel-xeon-scalable-processors.html)
+
+<p align="center">
+  <a href="https://www.intel.com/content/www/us/en/content-details/766271/for-up-to-1-79-times-the-java-server-performance-choose-aws-ec2-c6i-instances-featuring-3rd-gen-intel-xeon-scalable-processors.html">
+  <img src="https://github.com/intel/terraform-intel-aws-vm/blob/main/images/aws-vm-3.png?raw=true" alt="Link" width="600"/>
+  </a>
+</p>
+
+#
+
+#### [Get up to 3.0x better NGINX performance with AWS Instances featuring 3rd Generation Intel® Xeon® Scalable Processor (Ice Lake) vs. AMD EPYC](https://www.intel.com/content/www/us/en/content-details/753045/get-up-to-3x-better-nginx-performance-with-aws-instances-featuring-3rd-gen-intel-xeon-scalable-processors.html)
+
+<p align="center">
+  <a href="https://www.intel.com/content/www/us/en/content-details/753045/get-up-to-3x-better-nginx-performance-with-aws-instances-featuring-3rd-gen-intel-xeon-scalable-processors.html">
+  <img src="https://github.com/intel/terraform-intel-aws-vm/blob/main/images/aws-vm-4.png?raw=true" alt="Link" width="600"/>
+  </a>
+</p>
+
+#
+
+#### [Process up to 1.42x more database transactions with AWS Instances featuring 3rd Generation Intel® Xeon® Scalable Processor (Ice Lake) vs. previous generation](https://www.intel.com/content/www/us/en/content-details/753185/book-up-to-1-42x-the-reservations-at-once-with-aws-ec2-m6i-instances-vs-aws-m5n-instances.html)
+
+<p align="center">
+  <a href="https://www.intel.com/content/www/us/en/content-details/753185/book-up-to-1-42x-the-reservations-at-once-with-aws-ec2-m6i-instances-vs-aws-m5n-instances.html">
+  <img src="https://github.com/intel/terraform-intel-aws-vm/blob/main/images/aws-vm-5.png?raw=true" alt="Link" width="600"/>
+  </a>
+</p>
+
+#
+
+#### [Achieve up to 6.5x more BERT Deep Learning performance with AWS M6i Instances enabled by 3rd Generation Intel® Xeon® Scalable Processor (Ice Lake) vs. AMD EPYC](https://www.intel.com/content/www/us/en/content-details/756228/achieve-up-to-6-5x-the-bert-deep-learning-performance-with-aws-m6i-instances-enabled-by-3rd-gen-intel-xeon-scalable-processors.html)
+
+<p align="center">
+  <a href="https://www.intel.com/content/www/us/en/content-details/756228/achieve-up-to-6-5x-the-bert-deep-learning-performance-with-aws-m6i-instances-enabled-by-3rd-gen-intel-xeon-scalable-processors.html">
+  <img src="https://github.com/intel/terraform-intel-aws-vm/blob/main/images/aws-vm-6.png?raw=true" alt="Link" width="600"/>
+  </a>
+</p>
+
+#
+
+#### [Up to 1.5x more MongoDB Operations/Sec with C6i Instances featuring 3rd Generation Intel® Xeon® Scalable Processor (Ice Lake) vs. Graviton](https://www.intel.com/content/www/us/en/content-details/764653/increase-mongodb-performance-by-up-to-1-5x-with-aws-ec2-c6i-instances-enabled-by-3rd-gen-intel-xeon-scalable-processors.html)
+
+<p align="center">
+  <a href="https://www.intel.com/content/www/us/en/content-details/764653/increase-mongodb-performance-by-up-to-1-5x-with-aws-ec2-c6i-instances-enabled-by-3rd-gen-intel-xeon-scalable-processors.html">
+  <img src="https://github.com/intel/terraform-intel-aws-vm/blob/main/images/aws-vm-7.png?raw=true" alt="Link" width="600"/>
+  </a>
+</p>
+
+#
+
+#### [Up to 1.31x more MongoDB transactions with C6i Instances featuring 3rd Generation Intel® Xeon® Scalable Processor (Ice Lake) vs. AMD EPYC](https://www.intel.com/content/www/us/en/content-details/764656/for-up-to-1-31x-the-mongodb-performance-select-aws-ec2-c6i-instances-featuring-3rd-gen-intel-xeon-scalable-processors.html)
+
+<p align="center">
+  <a href="https://www.intel.com/content/www/us/en/content-details/764656/for-up-to-1-31x-the-mongodb-performance-select-aws-ec2-c6i-instances-featuring-3rd-gen-intel-xeon-scalable-processors.html">
+  <img src="https://github.com/intel/terraform-intel-aws-vm/blob/main/images/aws-vm-8.png?raw=true" alt="Link" width="600"/>
+  </a>
+</p>
+
+#
+
+#### [Achieve up to 1.56x more Floating Point performance on 3rd Generation Intel® Xeon® Scalable Processor (Ice Lake) vs. AMD EPYC](https://www.intel.com/content/www/us/en/content-details/766407/aws-ec2-c6i-instances-enabled-by-3rd-gen-intel-xeon-scalable-processors-delivered-better-compute-performance.html)
+
+<p align="center">
+  <a href="https://www.intel.com/content/www/us/en/content-details/766407/aws-ec2-c6i-instances-enabled-by-3rd-gen-intel-xeon-scalable-processors-delivered-better-compute-performance.html">
+  <img src="https://github.com/intel/terraform-intel-aws-vm/blob/main/images/aws-vm-9.png?raw=true" alt="Link" width="600"/>
+  </a>
+</p>
+
+#
+
+#### [Achieve up to 1.29x more Floating Point performance with C6i Instances featuring 3rd Generation Intel® Xeon® Scalable Processor (Ice Lake) vs. Graviton](https://www.intel.com/content/www/us/en/content-details/766330/get-better-compute-intensive-workload-performance-with-aws-ec2-c6i-instances-enabled-by-3rd-gen-intel-xeon-scalable-processors.html)
+
+<p align="center">
+  <a href="https://www.intel.com/content/www/us/en/content-details/766330/get-better-compute-intensive-workload-performance-with-aws-ec2-c6i-instances-enabled-by-3rd-gen-intel-xeon-scalable-processors.html">
+  <img src="https://github.com/intel/terraform-intel-aws-vm/blob/main/images/aws-vm-10.png?raw=true" alt="Link" width="600"/>
+  </a>
+</p>
+
+</center>
+
 ## Usage
 
 See examples folder for code ./examples/amazon-linux-ec2-default-vpc/main.tf
