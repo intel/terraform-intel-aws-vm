@@ -92,7 +92,7 @@ Configuration in this directory creates an AWS VM (Instance).   The instance is 
 
 #
 
-#### [Up to 1.29x more MongoDB transactions with C6i Instances featuring 3rd Generation Intel® Xeon® Scalable Processor (Ice Lake) vs. AMD EPYC](https://www.intel.com/content/www/us/en/content-details/764656/for-up-to-1-31x-the-mongodb-performance-select-aws-ec2-c6i-instances-featuring-3rd-gen-intel-xeon-scalable-processors.html)
+#### [Up to 1.31x more MongoDB transactions with C6i Instances featuring 3rd Generation Intel® Xeon® Scalable Processor (Ice Lake) vs. AMD EPYC](https://www.intel.com/content/www/us/en/content-details/764656/for-up-to-1-31x-the-mongodb-performance-select-aws-ec2-c6i-instances-featuring-3rd-gen-intel-xeon-scalable-processors.html)
 
 <p align="center">
   <a href="https://www.intel.com/content/www/us/en/content-details/764656/for-up-to-1-31x-the-mongodb-performance-select-aws-ec2-c6i-instances-featuring-3rd-gen-intel-xeon-scalable-processors.html">
