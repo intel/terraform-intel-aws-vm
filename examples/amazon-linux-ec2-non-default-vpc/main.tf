@@ -23,7 +23,7 @@ resource "tls_private_key" "rsa" {
 }
 
 resource "aws_key_pair" "TF_key" {
-  key_name   = "TF_key"
+  key_name   = "TF_key-${random_id.rid.dec}"
   public_key = tls_private_key.rsa.public_key_openssh
 }
 
@@ -41,8 +41,7 @@ resource "aws_security_group" "ssh_security_group" {
     protocol  = "tcp"
 
     ## CHANGE THE IP CIDR BLOCK BELOW TO ALL YOUR OWN SSH PORT ##
-    #cidr_blocks = ["a.b.c.d/x"]
-    cidr_blocks = ["136.52.34.139/32"]
+    cidr_blocks = ["a.b.c.d/x"]
   }
 }
 
@@ -61,7 +60,7 @@ resource "aws_network_interface_sg_attachment" "sg_attachment" {
 
 module "ec2-vm" {
   source    = "intel/aws-vm/intel"
-  key_name  = "TF_key"
+  key_name  = aws_key_pair.TF_key.key_name
   subnet_id = data.aws_subnets.vpc_subnets.ids[0]
   tags = {
     Name     = "my-test-vm-${random_id.rid.dec}"

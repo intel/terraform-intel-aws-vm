@@ -1,8 +1,8 @@
 # Provision a capacity reservation in AWS availability zone us-east-1d. This capacity reservation will be for
-# instance type m6i.large for Linux/UNIX in this availability zone. Instance eligibility for this capacity
+# instance type m7i.large for Linux/UNIX in this availability zone. Instance eligibility for this capacity
 # reservation will be targetted.
 
-# Provision EC2 Instance on Icelake on Amazon Linux OS in default vpc using the targetted capacity reservation 
+# Provision EC2 Instance on Sapphire Rapids on Amazon Linux OS in default vpc using the targetted capacity reservation 
 # created in the above step. The EC2 is configured to create the EC2 in US-East-1 region. The region is provided
 # in variables.tf in this example folder.
 
@@ -14,7 +14,7 @@
 
 # Create capacity reservation for EC2
 resource "aws_ec2_capacity_reservation" "thiscapacity" {
-  instance_type           = "m6i.large"
+  instance_type           = "m7i.large"
   instance_platform       = "Linux/UNIX"
   availability_zone       = "us-east-1d"
   instance_match_criteria = "targeted"
@@ -32,7 +32,7 @@ resource "tls_private_key" "rsa" {
 }
 
 resource "aws_key_pair" "TF_key" {
-  key_name   = "TF_key"
+  key_name   = "TF_key-${random_id.rid.dec}"
   public_key = tls_private_key.rsa.public_key_openssh
 }
 
@@ -49,8 +49,7 @@ resource "aws_security_group" "ssh_security_group" {
     protocol  = "tcp"
 
     ## CHANGE THE IP CIDR BLOCK BELOW TO ALL YOUR OWN SSH PORT ##
-    #cidr_blocks = ["a.b.c.d/x"]
-    cidr_blocks = ["136.52.34.139/32"]
+    cidr_blocks = ["a.b.c.d/x"]
   }
 }
 
@@ -61,7 +60,7 @@ resource "aws_network_interface_sg_attachment" "sg_attachment" {
 
 module "ec2-vm" {
   source   = "intel/aws-vm/intel"
-  key_name = "TF_key"
+  key_name = aws_key_pair.TF_key.key_name
   capacity_reservation_specification = {
     capacity_reservation_target = {
       capacity_reservation_id = aws_ec2_capacity_reservation.thiscapacity.id
