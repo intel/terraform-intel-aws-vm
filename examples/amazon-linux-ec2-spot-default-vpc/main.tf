@@ -47,4 +47,5 @@ module "ec2-vm" {
   spot_wait_for_fulfillment = true
   key_name                  = aws_key_pair.TF_key.key_name
   vpc_security_group_ids    = [aws_security_group.ssh_security_group.id]
+  availability_zone         = "us-east-1d"
 }
