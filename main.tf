@@ -190,7 +190,7 @@ resource "aws_spot_instance_request" "this" {
   # Spot request specific attributes
   spot_price                     = var.spot_price
   wait_for_fulfillment           = var.spot_wait_for_fulfillment
-  spot_type                      = var.spot_type
+  spot_type                      = var.spot_instance_type
   launch_group                   = var.spot_launch_group
   block_duration_minutes         = var.spot_block_duration_minutes
   instance_interruption_behavior = var.spot_instance_interruption_behavior

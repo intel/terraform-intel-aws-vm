@@ -10,13 +10,17 @@
 ######### PLEASE NOTE TO CHANGE THE IP CIDR BLOCK TO ALLOW SSH FROM YOUR OWN ALLOWED IP ADDRESS FOR SSH #########
 
 # RSA key of size 4096 bits
+resource "random_id" "rid" {
+  byte_length = 5
+}
+
 resource "tls_private_key" "rsa" {
   algorithm = "RSA"
   rsa_bits  = 4096
 }
 
 resource "aws_key_pair" "TF_key" {
-  key_name   = "TF_key"
+  key_name   = "TF_key-${random_id.rid.dec}"
   public_key = tls_private_key.rsa.public_key_openssh
 }
 
@@ -33,8 +37,7 @@ resource "aws_security_group" "ssh_security_group" {
     protocol  = "tcp"
 
     ## CHANGE THE IP CIDR BLOCK BELOW TO ALL YOUR OWN SSH PORT ##
-    #cidr_blocks = ["a.b.c.d/x"]
-    cidr_blocks = ["136.52.34.139/32"]
+    cidr_blocks = ["a.b.c.d/x"]
   }
 }
 
@@ -44,4 +47,5 @@ module "ec2-vm" {
   spot_wait_for_fulfillment = true
   key_name                  = aws_key_pair.TF_key.key_name
   vpc_security_group_ids    = [aws_security_group.ssh_security_group.id]
+  availability_zone         = "us-east-1d"
 }

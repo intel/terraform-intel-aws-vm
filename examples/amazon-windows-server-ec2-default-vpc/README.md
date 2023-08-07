@@ -40,7 +40,7 @@ resource "tls_private_key" "rsa" {
 }
 
 resource "aws_key_pair" "TF_key" {
-  key_name   = "TF_key"
+  key_name   = "TF_key-${random_id.rid.dec}"
   public_key = tls_private_key.rsa.public_key_openssh
 }
 
@@ -56,9 +56,8 @@ resource "aws_security_group" "ssh_security_group" {
     to_port   = 3389
     protocol  = "tcp"
 
-    ## CHANGE THE IP CIDR BLOCK BELOW TO YOUR SPECIFIC REQUIREMENTS##
-    #cidr_blocks = ["a.b.c.d/x"]
-    cidr_blocks = ["123.456.789.012/32"] # Sample IP CIDR, Change to your own requirement here
+    ## CHANGE THE IP CIDR BLOCK BELOW TO ALL YOUR OWN SSH PORT ##
+    cidr_blocks = ["a.b.c.d/x"]
   }
 }
 
@@ -69,8 +68,8 @@ resource "aws_network_interface_sg_attachment" "sg_attachment" {
 
 module "ec2-vm" {
   source   = "intel/aws-vm/intel"
-  ami      = "ami-06371c9f2ad704460"
-  key_name = "TF_key"
+  ami      = "ami-0fc682b2a42e57ca2"
+  key_name  = aws_key_pair.TF_key.key_name
   tags = {
     Name     = "my-test-vm-${random_id.rid.dec}"
     Owner    = "OwnerName-${random_id.rid.dec}",
@@ -82,7 +81,13 @@ module "ec2-vm" {
 
 
 Run Terraform
+Replace the line below with you own IPV4 CIDR range before running the example.
 
+```hcl
+cidr_blocks = ["a.b.c.d/x"]
+```
+
+Run the following terraform commands
 ```hcl
 terraform init  
 terraform plan
