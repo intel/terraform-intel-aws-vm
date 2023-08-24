@@ -8,7 +8,7 @@
 
 ## Terraform Intel AWS VM - Red Hat RHEL VM in Default VPC
 
-This example creates an AWS Red Hat Enterprise Linux (RHEL) EC2 instance on Intel Icelake CPU on Linux Operating System in the default VPC. It is configured to create the EC2 instance in US-East-1 region. The region is provided in variables.tf in this example folder.
+This example creates an AWS Red Hat Enterprise Linux (RHEL) EC2 instance on a 4th Generation Intel® Xeon® Scalable Processor (Sapphire Rapids) in the default VPC. It is configured to create the EC2 instance in US-East-1 region. The region is provided in variables.tf in this example folder.
 
 This example also creates an EC2 key pair. It associates the public key with the EC2 instance. The private key is created in the local system where terraform apply is done. It also creates a new scurity group to open up the SSH port 22 to a specific IP CIDR block. This example requires RHEL SSM Parameter name for the ami_ssm_parameter in the variables file. More information can be found on [Red Hat Enterprise Linux Images Available on Amazon Web Services Documentation](<https://access.redhat.com/solutions/15356>)
 
