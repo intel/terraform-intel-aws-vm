@@ -8,7 +8,7 @@
 
 ## Terraform Intel AWS VM - Spot Linux VM in Default VPC
 
-This example creates EC2 Spot Instance request on Intel Icelake CPU on Amazon Linux OS in default vpc. It is configured to create the EC2 instance in US-East-1 region. The region is provided in variables.tf in this example folder.
+This example creates EC2 Spot Instance request on 4th Generation Intel® Xeon® Scalable Processor (Sapphire Rapids) on Amazon Linux OS in default vpc. It is configured to create the EC2 instance in US-East-1 region. The region is provided in variables.tf in this example folder.
 
 To apply the changes, run command terraform apply. Once the spot request is created, check the status of the spot request in AWS Console or using CLI commands
 
@@ -18,9 +18,13 @@ In this example, no tags are added to the EC2 instance when it is created from t
 
 **As of 04-Aug-2023, AWS support confirmed that M7i/M7i-flex instances are not available in all availability zones of AWS US-East-1 region. Hence added the availability zone in this example where these instance types are available.**
 
+## Architecture Diagram
+<p align="center">
+  <img src="https://github.com/intel/terraform-intel-aws-vm/blob/main/images/amazon-ec2-spot-default-vpc.png?raw=true" alt="amazon-ec2-rhel-default-vpc" width="250"/>
+</p>
+
 ## Usage
 
-**See examples folder ./examples/amazon-linux-ec2-spot-default-vpc**
 
 variables.tf
 

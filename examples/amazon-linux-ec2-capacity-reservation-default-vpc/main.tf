@@ -1,8 +1,8 @@
 # Provision a capacity reservation in AWS availability zone us-east-1d. This capacity reservation will be for
 # instance type m7i.large for Linux/UNIX in this availability zone. Instance eligibility for this capacity
-# reservation will be targetted.
+# reservation will be targeted.
 
-# Provision EC2 Instance on Sapphire Rapids on Amazon Linux OS in default vpc using the targetted capacity reservation 
+# Provision EC2 Instance on Sapphire Rapids on Amazon Linux OS in default vpc using the targeted capacity reservation 
 # created in the above step. The EC2 is configured to create the EC2 in US-East-1 region. The region is provided
 # in variables.tf in this example folder.
 
@@ -50,6 +50,8 @@ resource "aws_security_group" "ssh_security_group" {
 
     ## CHANGE THE IP CIDR BLOCK BELOW TO ALL YOUR OWN SSH PORT ##
     cidr_blocks = ["a.b.c.d/x"]
+
+
   }
 }
 

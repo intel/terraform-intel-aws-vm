@@ -10,15 +10,19 @@
 
 This example provisions a capacity reservation in AWS availability zone us-east-1d. This capacity reservation is used for instance type m6i.large for Linux/UNIX in this availability zone. Instance eligibility for this capacity reservation will be targetted.
 
-Following the capacity reservation, it provisions an EC2 Instance on Icelake on Amazon Linux OS in default vpc using the targetted capacity reservation  created in the above step. It creates the EC2 instance in US-East-1 region. The region is provided in variables.tf in this example folder.
+Following the capacity reservation, it provisions an EC2 Instance on a 4th Generation Intel® Xeon® Scalable Processor (Sapphire Rapids) on Linux OS in the default vpc using the targetted capacity reservation created in the above step. It creates the EC2 instance in US-East-1 region. The region is provided in variables.tf in this example folder.
 
 This example also creates an EC2 key pair. It associates the public key with the EC2 instance. The private key is created in the local system where terraform apply is done. It also creates a new scurity group to open up the SSH port 22 to a specific IP CIDR block.
 
 In this example, the tags Name, Owner and Duration are added to the EC2 instance when it is created.
 
+## Architecture Diagram
+<p align="center">
+  <img src="https://github.com/intel/terraform-intel-aws-vm/blob/main/images/amazon-ec2-capacity-reservation-default-vpc.png?raw=true" alt="amazon-ec2-rhel-default-vpc" width="250"/>
+</p>
+
 ## Usage
 
-**See examples folder ./examples/amazon-linux-ec2-capacity-reservation-default-vpc**
 
 variables.tf
 

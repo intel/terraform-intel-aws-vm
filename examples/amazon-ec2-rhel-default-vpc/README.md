@@ -21,7 +21,6 @@ In this example, the tags Name, Owner and Duration are added to the EC2 instance
 
 ## Usage
 
-
 variables.tf
 
 ```hcl
