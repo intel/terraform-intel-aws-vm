@@ -14,9 +14,13 @@ This example also creates an EC2 key pair. It associates the public key with the
 
 In this example, the tags Name, Owner and Duration are added to the EC2 instance when it is created.
 
+## Architecture Diagram
+<p align="center">
+  <img src="https://github.com/intel/terraform-intel-aws-vm/blob/main/images/amazon-ec2-rhel-default-vpc.png?raw=true" alt="amazon-ec2-rhel-default-vpc" width="250"/>
+</p>
+
 ## Usage
 
-**See examples folder ./examples/amazon-linux-ec2-default-vpc**
 
 variables.tf
 
