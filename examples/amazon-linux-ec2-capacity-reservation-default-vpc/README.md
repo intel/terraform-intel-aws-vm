@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/intel/terraform-intel-aws-vm/blob/main/images/logo-classicblue-800px.png?raw=true" alt="Intel Logo" width="250"/>
+  <img src="https://github.com/intel/terraform-intel-aws-vm/blob/main/images/logo-classicblue-800px.png?raw=true" alt="Intel Logo" width="750"/>
 </p>
 
 # Intel Cloud Optimization Modules for Terraform
@@ -18,7 +18,7 @@ In this example, the tags Name, Owner and Duration are added to the EC2 instance
 
 ## Architecture Diagram
 <p align="center">
-  <img src="https://github.com/intel/terraform-intel-aws-vm/blob/main/images/amazon-ec2-capacity-reservation-default-vpc.png?raw=true" alt="amazon-ec2-rhel-default-vpc" width="250"/>
+  <img src="https://github.com/intel/terraform-intel-aws-vm/blob/main/images/amazon-ec2-capacity-reservation-default-vpc.png?raw=true" alt="amazon-ec2-rhel-default-vpc" width="750"/>
 </p>
 
 ## Usage
