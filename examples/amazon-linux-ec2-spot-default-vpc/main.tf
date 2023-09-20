@@ -37,7 +37,8 @@ resource "aws_security_group" "ssh_security_group" {
     protocol  = "tcp"
 
     ## CHANGE THE IP CIDR BLOCK BELOW TO ALL YOUR OWN SSH PORT ##
-    cidr_blocks = ["a.b.c.d/x"]
+    ##cidr_blocks = ["a.b.c.d/x"]
+    cidr_blocks = ["134.134.139.86/32"]
   }
 }
 
