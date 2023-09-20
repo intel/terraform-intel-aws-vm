@@ -10,7 +10,7 @@
 
 ## AWS VM module
 
-Configuration in this directory creates an AWS VM (Instance).   The instance is created on an 3rd Generation Intel® Xeon® Scalable Processor (IceLake) by default.  
+Configuration in this directory creates an AWS VM (EC2 Instance).   The instance is created on an 3rd Generation Intel® Xeon® Scalable Processor (IceLake) by default.  
 
 ## Performance Data
 
@@ -124,7 +124,15 @@ Configuration in this directory creates an AWS VM (Instance).   The instance is 
 
 ## Usage
 
-See examples folder for code ./examples/amazon-linux-ec2-default-vpc/main.tf
+You can reference the examples folder for sample code that meets your use case:  Each example will have a usage description listed in the README documentation.
+
+- [Red Hat Linux EC2 instance in Default VPC](https://github.com/intel/terraform-intel-aws-vm/tree/main/examples/amazon-ec2-rhel-default-vpc)
+- [Capacity Reservation for EC2 instance](https://github.com/intel/terraform-intel-aws-vm/tree/main/examples/amazon-linux-ec2-capacity-reservation-default-vpc)
+- [EC2 Linux Instance in Default VPC](https://github.com/intel/terraform-intel-aws-vm/tree/main/examples/amazon-linux-ec2-default-vpc)
+- [EC2 Linux Instance in Existing VPC](https://github.com/intel/terraform-intel-aws-vm/tree/main/examples/amazon-linux-ec2-non-default-vpc)
+- [EC2 Instance in Default VPC using Spot](https://github.com/intel/terraform-intel-aws-vm/tree/main/examples/amazon-linux-ec2-spot-default-vpc)
+- [EC2 Windows Instance in Default VPC](https://github.com/intel/terraform-intel-aws-vm/tree/main/examples/amazon-windows-server-ec2-default-vpc)
+- [EC2 Instance with FastChat LLM](https://github.com/intel/terraform-intel-aws-vm/tree/main/examples/gen-ai-fastchat)
 
 Example of main.tf
 
@@ -138,6 +146,8 @@ module "ec2-vm" {
   }
 }
 ``` 
+
+Execution steps:
 ``` hcl
 terraform init  
 terraform plan
@@ -146,6 +156,24 @@ terraform apply
 ```
 
 Note that this example may create resources. Run `terraform destroy` when you don't need these resources anymore.
+
+## Supported Regions
+These modules support all AWS Regions that are enabled in your AWS account.
+
+## Deployment Time
+Each example module will spin up resources under 5 minutes. 
+Refer to each example README file for specific instructions on the required paramaters you must input for your AWS Account and region for deployment.
+
+## Deployment Guide
+Each Example will have specific instructions listed in the README file.  This file will list the required variables you need to populate in order to deploy the module.
+
+All example modules are open source and are covered under the Apache License Version 2.0. 
+
+You will need an active AWS account along with knowledge of how to use the AWS CLI to configure your client to access your AWS account.
+
+## Security
+- When using any of these modules in your AWS account, do not use the AWS account root user.  Leverage the IAM service to create IAM credentials and follow the principle of "least privilege" permissions for the credentials you create.
+- When deploying EC2 instances with this module all EC2 Keypairs that are generated will download and keeps the private key in the same folder from where the **terraform apply** was run.
 
 ## Considerations  
 - Using HashiCorp Modules alongside green-blue deployment allows for a secure and efficient deployment process. The modules can be easily integrated into both the active and inactive environments, ensuring consistency across both environments.

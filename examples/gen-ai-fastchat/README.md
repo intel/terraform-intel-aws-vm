@@ -6,13 +6,17 @@
 
 © Copyright 2022, Intel Corporation
 
-## AWS M7i EC2 Instance with 4th Gen Xeon(code named Sapphire Rapids) & Intel® Cloud Optimized Recipe for FastChat
+## AWS M7i EC2 Instance with 4th Generation Intel® Xeon® Scalable Processor (Sapphire Rapids) & Intel® Cloud Optimized Recipe for FastChat
 
 This demo will showcase Large Language Model(LLM) CPU inference using 4th Gen Xeon Scalable Processors on AWS using FastChat.
 
+## Architecture Diagram
+<p align="center">
+  <img src="https://github.com/intel/terraform-intel-aws-vm/blob/main/images/gen-ai-fastchat.png?raw=true" alt="amazon-ec2-rhel-default-vpc" width="250"/>
+</p>
+
 ## Usage
 
-**See examples folder ./examples/gen-ai-fastchat**
 
 variables.tf
 
@@ -76,6 +80,7 @@ terraform apply
 ```
 
 After **terraform apply** completes, wait about 10 mins. During this time, the Ansible recipe will download/install FastChat and the LLM model
+
 
 ## Running the Demo
 1. As mentioned above, **wait ~10 minutes** for the Recipe to download/install FastChat and the LLM model before continuing

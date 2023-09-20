@@ -8,15 +8,18 @@
 
 ## Terraform Intel AWS VM - Linux VM in Non Default VPC
 
-This example creates an AWS EC2 instance on Intel Icelake CPU on Linux Operating System in a non-default VPC. The non-default VPC id is needed to be passed in this module as a variable. It is configured to create the EC2 instance in US-East-1 region. The region is provided in variables.tf in this example folder.
+This example creates an AWS EC2 instance on 4th Generation Intel® Xeon® Scalable Processor (Sapphire Rapids) on Linux Operating System in a non-default VPC. The non-default VPC id is needed to be passed in this module as a variable. It is configured to create the EC2 instance in US-East-1 region. The region is provided in variables.tf in this example folder.
 
 This example also creates an EC2 key pair. It associates the public key with the EC2 instance. The private key is created in the local system where terraform apply is done. It also creates a new scurity group to open up the SSH port 22 to a specific IP CIDR block.
 
 In this example, the tags Name, Owner and Duration are added to the EC2 instance when it is created.
 
-## Usage
+## Architecture Diagram
+<p align="center">
+  <img src="https://github.com/intel/terraform-intel-aws-vm/blob/main/images/amazon-ec2-non-default-vpc.png?raw=true" alt="amazon-ec2-rhel-default-vpc" width="250"/>
+</p>
 
-**See examples folder ./examples/amazon-linux-ec2-non-default-vpc**
+## Usage
 
 variables.tf
 
