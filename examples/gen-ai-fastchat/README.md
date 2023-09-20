@@ -96,7 +96,7 @@ ssh ubuntu@<Public_IP_Address_EC2_Instance> -i tfkey.private
 8. Open a browser and put the gradio url referenced in the prior step
 
 <p align="center">
-  <img src="https://github.com/intel/terraform-intel-aws-vm/blob/main/images/gradio.png?raw=true" alt="Gradio_Output" width="250"/>
+  <img src="https://github.com/intel/terraform-intel-aws-vm/blob/main/images/gradio.png?raw=true" alt="Gradio_Output" width="750"/>
 </p>
 
 ## Known Issues
