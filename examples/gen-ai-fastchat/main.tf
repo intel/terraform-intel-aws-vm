@@ -40,43 +40,35 @@ resource "local_file" "TF_private_key" {
   content  = tls_private_key.rsa.private_key_pem
   filename = "tfkey.private"
 }
-
 resource "aws_security_group" "ssh_security_group" {
   description = "security group to configure ports for ssh"
-  ingress {
-    from_port = 22
-    to_port   = 22
-    protocol  = "tcp"
+  name_prefix = "ssh_security_group"
+}
 
-    ## CHANGE THE IP CIDR BLOCK BELOW TO ALL YOUR OWN SSH PORT ##
-    cidr_blocks = ["a.b.c.d/x"]
-  }
+# Modify the `ingress_rules` variable in the variables.tf file to allow the required ports for your CIDR ranges
+resource "aws_security_group_rule" "ingress_rules" {
+  count             = length(var.ingress_rules)
+  type              = "ingress"
+  security_group_id = aws_security_group.ssh_security_group.id
+  from_port         = var.ingress_rules[count.index].from_port
+  to_port           = var.ingress_rules[count.index].to_port
+  protocol          = var.ingress_rules[count.index].protocol
+  cidr_blocks       = [var.ingress_rules[count.index].cidr_blocks]
 }
 
 resource "aws_network_interface_sg_attachment" "sg_attachment" {
+  count = length(module.ec2-vm)
   security_group_id    = aws_security_group.ssh_security_group.id
-  network_interface_id = module.ec2-vm.primary_network_interface_id
+  network_interface_id = module.ec2-vm[count.index].primary_network_interface_id
 }
 
-## Get latest Ubuntu 22.04 AMI in AWS for x86
-data "aws_ami" "ubuntu-linux-2204" {
-  most_recent = true
-  owners      = ["099720109477"] # Canonical
-  filter {
-    name   = "name"
-    values = ["ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-*"]
-  }
-  filter {
-    name   = "virtualization-type"
-    values = ["hvm"]
-  }
-}
-
+# Modify the `vm_count` variable in the variables.tf file to create the required number of EC2 instances
 module "ec2-vm" {
+  count = var.vm_count
   source            = "intel/aws-vm/intel"
   key_name          = aws_key_pair.TF_key.key_name
   instance_type     = "m7i.4xlarge"
-  availability_zone = "us-east-1a"
+  availability_zone = "us-east-1c"
   ami               = data.aws_ami.ubuntu-linux-2204.id
   user_data         = data.cloudinit_config.ansible.rendered
 
@@ -85,7 +77,7 @@ module "ec2-vm" {
   }]
 
   tags = {
-    Name     = "my-test-vm-${random_id.rid.dec}"
+    Name     = "my-test-vm-${count.index}-${random_id.rid.dec}"
     Owner    = "OwnerName-${random_id.rid.dec}",
     Duration = "2"
   }
