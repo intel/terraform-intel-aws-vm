@@ -1,8 +1,8 @@
 <p align="center">
-  <img src="https://github.com/intel/terraform-intel-aws-vm/blob/main/images/logo-classicblue-800px.png?raw=true" alt="Intel Logo" width="750"/>
+  <img src="https://github.com/intel/terraform-intel-aws-vm/blob/main/images/logo-classicblue-800px.png?raw=true" alt="Intel Logo" width="250"/>
 </p>
 
-# Intel Optimized Cloud Modules for Terraform
+# Intel® Optimized Cloud Modules for Terraform
 
 © Copyright 2022, Intel Corporation
 
@@ -12,7 +12,7 @@ This demo will showcase Large Language Model(LLM) CPU inference using 4th Gen Xe
 
 ## Architecture Diagram
 <p align="center">
-  <img src="https://github.com/intel/terraform-intel-aws-vm/blob/main/images/gen-ai-fastchat.png?raw=true" alt="amazon-ec2-rhel-default-vpc" width="250"/>
+  <img src="https://github.com/intel/terraform-intel-aws-vm/blob/main/images/gen-ai-fastchat.png?raw=true" alt="amazon-ec2-rhel-default-vpc" width="750"/>
 </p>
 
 ## Usage
