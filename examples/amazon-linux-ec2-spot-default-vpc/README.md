@@ -20,7 +20,7 @@ In this example, no tags are added to the EC2 instance when it is created from t
 
 ## Architecture Diagram
 <p align="center">
-  <img src="https://github.com/intel/terraform-intel-aws-vm/blob/main/images/amazon-ec2-spot-default-vpc.png?raw=true" alt="amazon-ec2-rhel-default-vpc" width="750"/>
+  <img src="https://github.com/intel/terraform-intel-aws-vm/blob/main/images/amazon-ec2-spot-default-vpc.png?raw=true" alt="amazon-ec2-spot-default-vpc" width="750"/>
 </p>
 
 ## Usage
