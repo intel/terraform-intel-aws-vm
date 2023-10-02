@@ -17,13 +17,15 @@ variable "ingress_rules" {
       from_port   = 22
       to_port     = 22
       protocol    = "tcp"
-      cidr_blocks = "0.0.0.0/0"
+      ##cidr_blocks = "0.0.0.0/0"
+      cidr_blocks = "134.134.137.88/32"
     },
     {
       from_port   = 7860
       to_port     = 7860
       protocol    = "tcp"
-      cidr_blocks = "0.0.0.0/0"
+      ##cidr_blocks = "0.0.0.0/0"
+      cidr_blocks = "134.134.137.88/32"
     },
     {
       from_port   = 5000

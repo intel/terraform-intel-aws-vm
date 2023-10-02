@@ -85,19 +85,20 @@ After **terraform apply** completes, wait about 10 mins. During this time, the A
 ## Running the Demo
 1. As mentioned above, **wait ~10 minutes** for the Recipe to download/install FastChat and the LLM model before continuing
 2. SSH into newly created AWS EC2 instance. 
-3. The terraform module creates a key pair and adds the public key to the EC2 instance. It keeps the private key in the same folder from where the **terraform apply** was run.
+3. The terraform module creates a key pair and adds the public key to the EC2 instance. It keeps the private key in the same folder from where the **terraform apply** was run. (tf.private)
 4. Open command prompt on your computer. Nagivate to the folder from where you ran the **terraform apply** command.
 5. Run the ssh command as below:
 ```hcl
 ssh ubuntu@<Public_IP_Address_EC2_Instance> -i tfkey.private
 ```
+* Note: If you get a permission denied message you may have to change the permissions of the tf.private file by using the command "CHMOD 400 tf.private" Then run step 5 again to connect.
 6. Once you are logged into the EC2 instance, **run `source /usr/local/bin/run_demo.sh`**
-7. Your app will be proxied through gradio. See https://xxxxxxx.gradio.live URL that is generated during the run_demo.sh script execution.
-8. Open a browser and put the gradio url referenced in the prior step
+7. Now you can access the Fastchat by opening your browser and entering the following URL "http://<yourpublicip> :7860.
+8. Now you can enter your message or question in the chat prompt to see the Fastchat in action?
+* Note: This module is created using the m7i.4xlarge instance size, you can change your instance type by modifying the <b>
+instance_type = "m7i.4xlarge"</b> in the main.tf under the <b>ec2-vm module</b> section of the code.<br>
+If you just change to an 8xlarge and then run <b>terraform apply<b> the module will destroy the old instance and rebuild with a larger instance size.
 
-<p align="center">
-  <img src="https://github.com/intel/terraform-intel-aws-vm/blob/main/images/gradio.png?raw=true" alt="Gradio_Output" width="750"/>
-</p>
 
 ## Known Issues
 
