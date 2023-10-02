@@ -2,7 +2,7 @@
   <img src="https://github.com/intel/terraform-intel-aws-vm/blob/main/images/logo-classicblue-800px.png?raw=true" alt="Intel Logo" width="250"/>
 </p>
 
-# Intel® Cloud Optimization Modules for Terraform
+# Intel® Optimized Cloud Modules for Terraform
 
 © Copyright 2022, Intel Corporation
 
@@ -20,7 +20,7 @@ In this example, no tags are added to the EC2 instance when it is created from t
 
 ## Architecture Diagram
 <p align="center">
-  <img src="https://github.com/intel/terraform-intel-aws-vm/blob/main/images/amazon-ec2-spot-default-vpc.png?raw=true" alt="amazon-ec2-rhel-default-vpc" width="750"/>
+  <img src="https://github.com/intel/terraform-intel-aws-vm/blob/main/images/amazon-ec2-spot-default-vpc.png?raw=true" alt="amazon-ec2-spot-default-vpc" width="750"/>
 </p>
 
 ## Usage

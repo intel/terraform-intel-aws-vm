@@ -16,7 +16,7 @@ In this example, the tags Name, Owner and Duration are added to the EC2 instance
 
 ## Architecture Diagram
 <p align="center">
-  <img src="https://github.com/intel/terraform-intel-aws-vm/blob/main/images/amazon-ec2-default-vpc.png?raw=true" alt="amazon-ec2-rhel-default-vpc" width="750"/>
+  <img src="https://github.com/intel/terraform-intel-aws-vm/blob/main/images/amazon-ec2-default-vpc.png?raw=true" alt="amazon-ec2-default-vpc" width="750"/>
 </p>
 
 ## Usage
