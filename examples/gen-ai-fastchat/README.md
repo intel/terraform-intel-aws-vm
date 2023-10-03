@@ -91,9 +91,9 @@ After **terraform apply** completes, wait about 10 mins. During this time, the A
 ```hcl
 ssh ubuntu@<Public_IP_Address_EC2_Instance> -i tfkey.private
 ```
-* Note: If you get a permission denied message you may have to change the permissions of the tf.private file by using the command "CHMOD 400 tf.private" Then run step 5 again to connect.
+* Note: If you get a permission denied message you may have to change the permissions of the tf.private file by using the command "chmod 400 tfkey.private" Then run step 5 again to connect.
 6. Once you are logged into the EC2 instance, **run `source /usr/local/bin/run_demo.sh`**
-7. Now you can access the Fastchat by opening your browser and entering the following URL "http://<yourpublicip> :7860.
+7. Now you can access the Fastchat by opening your browser and entering the following URL "http://<yourpublicip>:7860.
 8. Now you can enter your message or question in the chat prompt to see the Fastchat in action?
 * Note: This module is created using the m7i.4xlarge instance size, you can change your instance type by modifying the <b>
 instance_type = "m7i.4xlarge"</b> in the main.tf under the <b>ec2-vm module</b> section of the code.<br>
