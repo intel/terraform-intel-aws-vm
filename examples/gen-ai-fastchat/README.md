@@ -69,7 +69,7 @@ module "ec2-vm" {
 ```
 
 ## Running the Demo using AWS CloudShell
-Open your AWS account and click the Cloudshell
+Open your AWS account and click the Cloudshell prompt<br>
 At the command prompt enter in in these command prompts to install Terraform into the AWS Cloudshell
 ```Shell
 git clone https://github.com/tfutils/tfenv.git ~/.tfenv
@@ -87,6 +87,7 @@ Change into the fastchat example folder
 cd terraform-intel-aws-vm/examples/gen-ai-fastchat
 ```
 
+Run the Terraform Commands below
 ```Shell
 terraform init
 terraform plan
@@ -125,9 +126,9 @@ http://yourpublicip:7860
 instance_type = "m7i.4xlarge"</b> in the main.tf under the <b>ec2-vm module</b> section of the code.<br>
 If you just change to an 8xlarge and then run <b>terraform apply</b> the module will destroy the old instance and rebuild with a larger instance size.
 
-5. To delete the demo:
-  a. Exit the VM instance by pressing Ctrl-C to break out of fastchat
-  b. Then run Terraform destroy to delete all resources created
+5. To delete the demo:<br>
+  a. Exit the VM instance by pressing Ctrl-C to break out of fastchat<br>
+  b. Then run Terraform destroy to delete all resources created<br>
 
 ## Considerations
 - The AWS region where this example is run should have a default VPC
