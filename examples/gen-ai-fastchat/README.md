@@ -18,7 +18,9 @@ This demo will showcase Large Language Model(LLM) CPU inference using 4th Gen Xe
 ## Usage
 
 
-variables.tf
+<b>variables.tf</b>
+
+Modify the region to target a specific AWS Region
 
 ```hcl
 variable "region" {
@@ -27,7 +29,10 @@ variable "region" {
   default     = "us-east-1"
 }
 ```
-main.tf
+<b>main.tf</b>
+
+Modify settings in this file to choose your AMI as well as instance size and other details around the instance that will be created
+
 ```hcl
 ## Get latest Ubuntu 22.04 AMI in AWS for x86
 data "aws_ami" "ubuntu-linux-2204" {
@@ -63,29 +68,37 @@ module "ec2-vm" {
 }
 ```
 
-
-
-Run Terraform
-Replace the line below with you own IPV4 CIDR range before running the example to limit internet access to your instance.  By default it opens 0.0.0.0/0 to the public ip.
-
-```hcl
-cidr_blocks = ["a.b.c.d/x"]
+## Running the Demo using AWS CloudShell
+Open your AWS account and click the Cloudshell
+At the command prompt enter in in these command prompts to install Terraform into the AWS Cloudshell
+```Shell
+git clone https://github.com/tfutils/tfenv.git ~/.tfenv
+mkdir ~/bin
+ln -s ~/.tfenv/bin/* ~/bin/
+tfenv install 1.3.0
+tfenv use 1.3.0
+```
+Download and run the [gen-ai-fastchat](https://github.com/intel/terraform-intel-aws-vm/tree/main/examples/gen-ai-fastchat) Terraform Module by typing this command
+```Shell
+git clone https://github.com/intel/terraform-intel-aws-vm.git
+```
+Change into the fastchat example folder
+```Shell
+cd terraform-intel-aws-vm/examples/gen-ai-fastchat
 ```
 
-Run the following terraform commands
-```hcl
-terraform init  
+```Shell
+terraform init
 terraform plan
-terraform apply  
+terraform apply
+```
+```Shell
+WAIT 10 MINUTES
 ```
 
-After running **terraform apply** completes, wait about 10 mins. During this time, the Ansible recipe will download/install FastChat and the LLM model
+After the Terraform module successfully creates the EC2 instance, **wait ~10 minutes** for the recipe to download/install FastChat and the LLM model before continuing.
 
-
-## Running the Demo
-1. As mentioned above, **wait ~10 minutes** for the recipe to download/install FastChat and the LLM model before continuing.
-
-2. Connect to the newly created AWS EC2 instance using SSH<br>
+1. Connect to the newly created AWS EC2 instance using SSH<br>
   
       a. The terraform module creates a key pair and adds the public key to the EC2 instance. It keeps the private key in the same folder from where the **terraform apply** was run. File name = tfkey.private<br>
   
@@ -108,11 +121,11 @@ After running **terraform apply** completes, wait about 10 mins. During this tim
 http://yourpublicip:7860
 
 5. Now you can enter your message or question in the chat prompt to see the Fastchat in action?
-  * Note: This module is created using the m7i.4xlarge instance size, you can change your instance type by modifying the <b>
+    * Note: This module is created using the m7i.4xlarge instance size, you can change your instance type by modifying the <b>
 instance_type = "m7i.4xlarge"</b> in the main.tf under the <b>ec2-vm module</b> section of the code.<br>
-If you just change to an 8xlarge and then run <b>terraform apply<b> the module will destroy the old instance and rebuild with a larger instance size.
+If you just change to an 8xlarge and then run <b>terraform apply</b> the module will destroy the old instance and rebuild with a larger instance size.
 
-9. To delete the demo:
+5. To delete the demo:
   a. Exit the VM instance by pressing Ctrl-C to break out of fastchat
   b. Then run Terraform destroy to delete all resources created
 
