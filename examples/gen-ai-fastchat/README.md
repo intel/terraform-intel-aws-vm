@@ -66,7 +66,7 @@ module "ec2-vm" {
 
 
 Run Terraform
-Replace the line below with you own IPV4 CIDR range before running the example.
+Replace the line below with you own IPV4 CIDR range before running the example to limit internet access to your instance.  By default it opens 0.0.0.0/0 to the public ip.
 
 ```hcl
 cidr_blocks = ["a.b.c.d/x"]
@@ -79,44 +79,42 @@ terraform plan
 terraform apply  
 ```
 
-After **terraform apply** completes, wait about 10 mins. During this time, the Ansible recipe will download/install FastChat and the LLM model
+After running **terraform apply** completes, wait about 10 mins. During this time, the Ansible recipe will download/install FastChat and the LLM model
 
 
 ## Running the Demo
-1. As mentioned above, **wait ~10 minutes** for the Recipe to download/install FastChat and the LLM model before continuing
-2. SSH into newly created AWS EC2 instance. 
-3. The terraform module creates a key pair and adds the public key to the EC2 instance. It keeps the private key in the same folder from where the **terraform apply** was run. (tf.private)
-4. Open command prompt on your computer. Nagivate to the folder from where you ran the **terraform apply** command.
-5. Run the ssh command as below:
-```hcl
-ssh ubuntu@<Public_IP_Address_EC2_Instance> -i tfkey.private
-```
-* Note: If you get a permission denied message you may have to change the permissions of the tf.private file by using the command "chmod 400 tfkey.private" Then run step 5 again to connect.
-6. Once you are logged into the EC2 instance, **run `source /usr/local/bin/run_demo.sh`**
-7. Now you can access the Fastchat by opening your browser and entering the following URL "http://<yourpublicip>:7860.
-8. Now you can enter your message or question in the chat prompt to see the Fastchat in action?
-* Note: This module is created using the m7i.4xlarge instance size, you can change your instance type by modifying the <b>
+1. As mentioned above, **wait ~10 minutes** for the recipe to download/install FastChat and the LLM model before continuing.
+
+2. Connect to the newly created AWS EC2 instance using SSH<br>
+  
+      a. The terraform module creates a key pair and adds the public key to the EC2 instance. It keeps the private key in the same folder from where the **terraform apply** was run. File name = tfkey.private<br>
+  
+    b. At your Terraform prompt, nagivate to the folder from where you ran the **terraform apply** command and change the permissions of the file:
+    ```hcl
+    chmod 400 tfkey.private
+    ```
+
+    c. Run the ssh command as below:
+    ```hcl
+    ssh ubuntu@<Public_IP_Address_EC2_Instance> -i tfkey.private
+    ```
+
+3. Once you are logged into the EC2 instance, run the command
+    ```hcl
+    source /usr/local/bin/run_demo.sh
+    ```
+
+4. Now you can access the Fastchat by opening your browser and entering the following URL     
+http://yourpublicip:7860
+
+5. Now you can enter your message or question in the chat prompt to see the Fastchat in action?
+  * Note: This module is created using the m7i.4xlarge instance size, you can change your instance type by modifying the <b>
 instance_type = "m7i.4xlarge"</b> in the main.tf under the <b>ec2-vm module</b> section of the code.<br>
 If you just change to an 8xlarge and then run <b>terraform apply<b> the module will destroy the old instance and rebuild with a larger instance size.
 
-
-## Known Issues
-
-The demo may initially fail. In this case, run
-
-```hcl
-pip install gradio==3.10
-```
-```hcl 
-pip install gradio==3.35.2
-```
-
-Then, run below command on the terminal of the EC2 instance after you have SSH into the instance:
-```hcl
-source /usr/local/bin/run_demo.sh
-``` 
-
-And navigate again using your browser.
+9. To delete the demo:
+  a. Exit the VM instance by pressing Ctrl-C to break out of fastchat
+  b. Then run Terraform destroy to delete all resources created
 
 ## Considerations
 - The AWS region where this example is run should have a default VPC
