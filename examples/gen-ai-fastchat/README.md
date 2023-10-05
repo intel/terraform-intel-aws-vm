@@ -18,7 +18,9 @@ This demo will showcase Large Language Model(LLM) CPU inference using 4th Gen Xe
 ## Usage
 
 
-variables.tf
+<b>variables.tf</b>
+
+Modify the region to target a specific AWS Region
 
 ```hcl
 variable "region" {
@@ -27,7 +29,10 @@ variable "region" {
   default     = "us-east-1"
 }
 ```
-main.tf
+<b>main.tf</b>
+
+Modify settings in this file to choose your AMI as well as instance size and other details around the instance that will be created
+
 ```hcl
 ## Get latest Ubuntu 22.04 AMI in AWS for x86
 data "aws_ami" "ubuntu-linux-2204" {
@@ -62,60 +67,105 @@ module "ec2-vm" {
   }
 }
 ```
-
-
-
-Run Terraform
-Replace the line below with you own IPV4 CIDR range before running the example.
-
-```hcl
-cidr_blocks = ["a.b.c.d/x"]
-```
-
-Run the following terraform commands
-```hcl
-terraform init  
+Run the Terraform Commands below
+```Shell
+terraform init
 terraform plan
-terraform apply  
+terraform apply
+```
+## Running the Demo with EC2 Console Access
+```Shell
+WAIT 10 MINUTES
+```
+As mentioned above, wait ~10 minutes for the Recipe to download/install FastChat and the LLM model before continuing.<br>
+1. SSH into newly created AWS EC2 instance.<br>
+  The terraform module creates a key pair and adds the public key to the EC2 instance. It keeps the private key in the same folder from where the terraform apply was run.<br>
+  
+2. Open command prompt on your computer. Navigate to the folder from where you ran the terraform apply command.<br>
+  a) The terraform module creates a key pair and adds the public key to the EC2 instance. It keeps the private key in the same folder from where the **terraform apply** was run. File name = tfkey.private<br>
+  b) At your Terraform prompt, nagivate to the folder from where you ran the **terraform apply** command and change the permissions of the file:
+    ```hcl
+    chmod 400 tfkey.private
+    ```
+
+    c)  Run the ssh command as below:
+    ```hcl
+    ssh ubuntu@<Public_IP_Address_EC2_Instance> -i tfkey.private
+    ```
+
+3. Once you are logged into the EC2 instance, run the command
+    ```hcl
+    source /usr/local/bin/run_demo.sh
+    ```
+
+4. Now you can access the Fastchat by opening your browser and entering the following URL     
+http://yourpublicip:7860
+
+5. Now you can enter your message or question in the chat prompt to see the Fastchat in action?
+    * Note: This module is created using the m7i.4xlarge instance size, you can change your instance type by modifying the <b>
+instance_type = "m7i.4xlarge"</b> in the main.tf under the <b>ec2-vm module</b> section of the code.<br>
+If you just change to an 8xlarge and then run <b>terraform apply</b> the module will destroy the old instance and rebuild with a larger instance size.
+
+6. To delete the demo:<br>
+  a. Exit the VM instance by pressing Ctrl-C to break out of fastchat<br>
+  b. Then run Terraform destroy to delete all resources created<br>
+
+
+## Running the Demo using AWS CloudShell
+Open your AWS account and click the Cloudshell prompt<br>
+At the command prompt enter in in these command prompts to install Terraform into the AWS Cloudshell
+```Shell
+git clone https://github.com/tfutils/tfenv.git ~/.tfenv
+mkdir ~/bin
+ln -s ~/.tfenv/bin/* ~/bin/
+tfenv install 1.3.0
+tfenv use 1.3.0
+```
+Download and run the [gen-ai-fastchat](https://github.com/intel/terraform-intel-aws-vm/tree/main/examples/gen-ai-fastchat) Terraform Module by typing this command
+```Shell
+git clone https://github.com/intel/terraform-intel-aws-vm.git
+```
+Change into the fastchat example folder
+```Shell
+cd terraform-intel-aws-vm/examples/gen-ai-fastchat
+```
+```Shell
+WAIT 10 MINUTES
 ```
 
-After **terraform apply** completes, wait about 10 mins. During this time, the Ansible recipe will download/install FastChat and the LLM model
+After the Terraform module successfully creates the EC2 instance, **wait ~10 minutes** for the recipe to download/install FastChat and the LLM model before continuing.
 
+1. Connect to the newly created AWS EC2 instance using SSH<br>
+  
+      a. The terraform module creates a key pair and adds the public key to the EC2 instance. It keeps the private key in the same folder from where the **terraform apply** was run. File name = tfkey.private<br>
+  
+    b. At your Terraform prompt, navigate to the folder from where you ran the **terraform apply** command and change the permissions of the file:
+    ```hcl
+    chmod 400 tfkey.private
+    ```
 
-## Running the Demo
-1. As mentioned above, **wait ~10 minutes** for the Recipe to download/install FastChat and the LLM model before continuing
-2. SSH into newly created AWS EC2 instance. 
-3. The terraform module creates a key pair and adds the public key to the EC2 instance. It keeps the private key in the same folder from where the **terraform apply** was run.
-4. Open command prompt on your computer. Nagivate to the folder from where you ran the **terraform apply** command.
-5. Run the ssh command as below:
-```hcl
-ssh ubuntu@<Public_IP_Address_EC2_Instance> -i tfkey.private
-```
-6. Once you are logged into the EC2 instance, **run `source /usr/local/bin/run_demo.sh`**
-7. Your app will be proxied through gradio. See https://xxxxxxx.gradio.live URL that is generated during the run_demo.sh script execution.
-8. Open a browser and put the gradio url referenced in the prior step
+    c. Run the ssh command as below:
+    ```hcl
+    ssh ubuntu@<Public_IP_Address_EC2_Instance> -i tfkey.private
+    ```
 
-<p align="center">
-  <img src="https://github.com/intel/terraform-intel-aws-vm/blob/main/images/gradio.png?raw=true" alt="Gradio_Output" width="750"/>
-</p>
+3. Once you are logged into the EC2 instance, run the command
+    ```hcl
+    source /usr/local/bin/run_demo.sh
+    ```
 
-## Known Issues
+4. Now you can access the Fastchat by opening your browser and entering the following URL     
+http://yourpublicip:7860
 
-The demo may initially fail. In this case, run
+5. Now you can enter your message or question in the chat prompt to see the Fastchat in action?
+    * Note: This module is created using the m7i.4xlarge instance size, you can change your instance type by modifying the <b>
+instance_type = "m7i.4xlarge"</b> in the main.tf under the <b>ec2-vm module</b> section of the code.<br>
+If you just change to an 8xlarge and then run <b>terraform apply</b> the module will destroy the old instance and rebuild with a larger instance size.
 
-```hcl
-pip install gradio==3.10
-```
-```hcl 
-pip install gradio==3.35.2
-```
+5. To delete the demo:<br>
+  a. Exit the VM instance by pressing Ctrl-C to break out of fastchat<br>
+  b. Then run Terraform destroy to delete all resources created<br>
 
-Then, run below command on the terminal of the EC2 instance after you have SSH into the instance:
-```hcl
-source /usr/local/bin/run_demo.sh
-``` 
-
-And navigate again using your browser.
 
 ## Considerations
 - The AWS region where this example is run should have a default VPC
