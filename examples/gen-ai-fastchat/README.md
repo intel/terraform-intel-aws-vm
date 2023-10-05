@@ -67,6 +67,49 @@ module "ec2-vm" {
   }
 }
 ```
+Run the Terraform Commands below
+```Shell
+terraform init
+terraform plan
+terraform apply
+```
+## Running the Demo with EC2 Console Access
+```Shell
+WAIT 10 MINUTES
+```
+As mentioned above, wait ~10 minutes for the Recipe to download/install FastChat and the LLM model before continuing.<br>
+1. SSH into newly created AWS EC2 instance.<br>
+  The terraform module creates a key pair and adds the public key to the EC2 instance. It keeps the private key in the same folder from where the terraform apply was run.<br>
+  
+2. Open command prompt on your computer. Navigate to the folder from where you ran the terraform apply command.<br>
+  a) The terraform module creates a key pair and adds the public key to the EC2 instance. It keeps the private key in the same folder from where the **terraform apply** was run. File name = tfkey.private<br>
+  b) At your Terraform prompt, nagivate to the folder from where you ran the **terraform apply** command and change the permissions of the file:
+    ```hcl
+    chmod 400 tfkey.private
+    ```
+
+    c)  Run the ssh command as below:
+    ```hcl
+    ssh ubuntu@<Public_IP_Address_EC2_Instance> -i tfkey.private
+    ```
+
+3. Once you are logged into the EC2 instance, run the command
+    ```hcl
+    source /usr/local/bin/run_demo.sh
+    ```
+
+4. Now you can access the Fastchat by opening your browser and entering the following URL     
+http://yourpublicip:7860
+
+5. Now you can enter your message or question in the chat prompt to see the Fastchat in action?
+    * Note: This module is created using the m7i.4xlarge instance size, you can change your instance type by modifying the <b>
+instance_type = "m7i.4xlarge"</b> in the main.tf under the <b>ec2-vm module</b> section of the code.<br>
+If you just change to an 8xlarge and then run <b>terraform apply</b> the module will destroy the old instance and rebuild with a larger instance size.
+
+6. To delete the demo:<br>
+  a. Exit the VM instance by pressing Ctrl-C to break out of fastchat<br>
+  b. Then run Terraform destroy to delete all resources created<br>
+
 
 ## Running the Demo using AWS CloudShell
 Open your AWS account and click the Cloudshell prompt<br>
@@ -86,13 +129,6 @@ Change into the fastchat example folder
 ```Shell
 cd terraform-intel-aws-vm/examples/gen-ai-fastchat
 ```
-
-Run the Terraform Commands below
-```Shell
-terraform init
-terraform plan
-terraform apply
-```
 ```Shell
 WAIT 10 MINUTES
 ```
@@ -103,7 +139,7 @@ After the Terraform module successfully creates the EC2 instance, **wait ~10 min
   
       a. The terraform module creates a key pair and adds the public key to the EC2 instance. It keeps the private key in the same folder from where the **terraform apply** was run. File name = tfkey.private<br>
   
-    b. At your Terraform prompt, nagivate to the folder from where you ran the **terraform apply** command and change the permissions of the file:
+    b. At your Terraform prompt, navigate to the folder from where you ran the **terraform apply** command and change the permissions of the file:
     ```hcl
     chmod 400 tfkey.private
     ```
@@ -129,6 +165,7 @@ If you just change to an 8xlarge and then run <b>terraform apply</b> the module 
 5. To delete the demo:<br>
   a. Exit the VM instance by pressing Ctrl-C to break out of fastchat<br>
   b. Then run Terraform destroy to delete all resources created<br>
+
 
 ## Considerations
 - The AWS region where this example is run should have a default VPC
