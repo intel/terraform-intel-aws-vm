@@ -8,7 +8,7 @@
 
 ## Terraform Intel AWS VM - Linux VM in Default VPC
 <p align="center">
-  <img src="https://github.com/intel/terraform-intel-aws-mysql/blob/main/images/aws-ec2-ico.png?raw=true" alt="Intel + Densify Logo" width="250"/>
+  <img src="https://github.com/intel/terraform-intel-aws-vm/blob/main/images/aws-ec2-ico.png?raw=true" alt="Intel + Densify Logo" width="250"/>
 </p>
 
 This example creates creates AWS EC2 instance on Linux Operating System in the default VPC using recommended instance from Intel Cloud Optimizer by Densify. 
