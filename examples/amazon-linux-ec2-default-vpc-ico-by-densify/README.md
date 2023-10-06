@@ -11,9 +11,17 @@
   <img src="https://github.com/intel/terraform-intel-aws-mysql/blob/main/images/aws-ec2-ico.png?raw=true" alt="Intel + Densify Logo" width="250"/>
 </p>
 
-This example creates creates AWS EC2 instance on Linux Operating System in the default VPC using recommended instance from Intel Cloud Optimizer by Densify. Intel® Cloud Optimizer is a collaboration between Densify and Intel targeted at getting you the most from your cloud investment. Intel Cloud Optimizer by Densify helps customers optimize their cloud investments and ensure optimal performance for every workload. Using this example requires a densify_recommndations.auto.tfvars file. You are expected to generate this file so this is a sample file only. In this sample file we will use example of recommended instance type of db.m6i.xlarge.
+This example creates creates AWS EC2 instance on Linux Operating System in the default VPC using recommended instance from Intel Cloud Optimizer by Densify. 
 
-This example creates an  It is configured to create the EC2 instance in US-East-1 region. The region is provided in variables.tf in this example folder.
+Intel® Cloud Optimizer is a collaboration between Densify and Intel targeted at getting you the most from your cloud investment. 
+
+Intel Cloud Optimizer by Densify helps customers optimize their cloud investments and ensure optimal performance for every workload.
+
+Using this example requires a densify_recommndations.auto.tfvars file. You are expected to generate this file so this is a sample file only. 
+
+In this sample file we will use example of recommended instance type of m6i.xlarge.
+
+This example is is configured to create the EC2 instance in US-East-1 region. The region is provided in variables.tf in this example folder.
 
 This example also creates an EC2 key pair. It associates the public key with the EC2 instance. The private key is created in the local system where terraform apply is done. It also creates a new scurity group to open up the SSH port 22 to a specific IP CIDR block.
 
