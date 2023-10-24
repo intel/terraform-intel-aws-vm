@@ -1,0 +1,14 @@
+#cloud-config
+package_update: true
+package_upgrade: true
+
+package:
+  - git
+
+runcmd:
+  - apt install ansible -y
+  - git clone https://github.com/intel/optimized-cloud-recipes.git /tmp/optimized-cloud-recipes
+  - cd /tmp/optimized-cloud-recipes
+  - ansible-playbook recipes/ai-fastchat-amx-ubuntu/recipe-services.yml &
+  - sleep 45
+  - ansible-playbook recipes/ai-stable_diffusion-amx-ubuntu/recipe-services.yml &
