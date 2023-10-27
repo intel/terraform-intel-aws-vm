@@ -119,7 +119,7 @@ instance_type = "m7i.4xlarge"** in the main.tf under the **ec2-vm module** secti
 
 ## Deleting the Demo
 
-To delete the demo, run Terraform destroy to delete all resources created
+To delete the demo, run `terraform destroy` to delete all resources created.
 
 ## Considerations
 
