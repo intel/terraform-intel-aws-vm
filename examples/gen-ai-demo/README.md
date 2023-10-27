@@ -90,7 +90,7 @@ Download and run the [Gen-AI-Demo](https://github.com/intel/terraform-intel-aws-
 git clone https://github.com/intel/terraform-intel-aws-vm.git
 ```
 
-Change into the FastChat example folder
+Change into the `examples/gen-ai-demo` example folder
 
 ```Shell
 cd terraform-intel-aws-vm/examples/gen-ai-demo
