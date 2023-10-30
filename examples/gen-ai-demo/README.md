@@ -12,7 +12,7 @@ This demo will showcase Large Language Model(LLM) CPU inference using 4th Gen Xe
 
 ## Usage
 
-**variables.tf**
+### variables.tf
 
 Modify the region to target a specific AWS Region
 
@@ -24,7 +24,7 @@ variable "region" {
 }
 ```
 
-**main.tf**
+### main.tf
 
 Modify settings in this file to choose your AMI as well as instance size and other details around the instance that will be created
 
@@ -71,26 +71,11 @@ terraform plan
 terraform apply
 ```
 
-## Running the Demo with EC2 Console Access
-
-As mentioned above, wait ~15 minutes for the Recipe to download/install FastChat, Stable Diffusion and the LLM model before continuing.
-
-1. You can access the demos using the following:
-
-- FastChat: `http://yourpublicip:7860`
-- Intel Optimized Stable Diffusion: `http://yourpublicip:5000`
-- Out of the box Stable Diffusion: `http://yourpublicip:5001`
-
-- Note: This module is created using the m7i.8xlarge instance size, you can change your instance type by modifying the **`instance_type = "m7i.8xlarge"`** in the main.tf under the **`ec2-vm module`** section of the code.
-If you just change to an 8xlarge and then run **`terraform apply`** the module will destroy the old instance and rebuild with a larger instance size.
-
-2. To delete the demo:
-  a. Run `terraform destroy` to delete all resources created
-
 ## Running the Demo using AWS CloudShell
 
 Open your AWS account and click the Cloudshell prompt
 At the command prompt enter in in these command prompts to install Terraform into the AWS Cloudshell
+
 ```Shell
 git clone https://github.com/tfutils/tfenv.git ~/.tfenv
 mkdir ~/bin
@@ -98,20 +83,32 @@ ln -s ~/.tfenv/bin/* ~/bin/
 tfenv install 1.3.0
 tfenv use 1.3.0
 ```
-Download and run the [gen-ai-demo](https://github.com/intel/terraform-intel-aws-vm/tree/main/examples/gen-ai-demo) Terraform Module by typing this command
+
+Download and run the [Gen-AI-Demo](https://github.com/intel/terraform-intel-aws-vm/tree/main/examples/gen-ai-demo) Terraform Module by typing this command
+
 ```Shell
 git clone https://github.com/intel/terraform-intel-aws-vm.git
 ```
-Change into the fastchat example folder
+
+Change into the `examples/gen-ai-demo` example folder
+
 ```Shell
 cd terraform-intel-aws-vm/examples/gen-ai-demo
 ```
 
-**WAIT 15 MINUTES**
+Run the Terraform Commands below to deploy the demos.
+
+```Shell
+terraform init
+terraform plan
+terraform apply
+```
 
 After the Terraform module successfully creates the EC2 instance, **wait ~15 minutes** for the recipe to download/install FastChat, Stable Diffusion and the LLM model before continuing.
 
-1. You can access the demos using the following:
+## Accessing the Demo
+
+You can access the demos using the following:
 
 - FastChat: `http://yourpublicip:7860`
 - Intel Optimized Stable Diffusion: `http://yourpublicip:5000`
@@ -120,8 +117,9 @@ After the Terraform module successfully creates the EC2 instance, **wait ~15 min
 - Note: This module is created using the m7i.4xlarge instance size, you can change your instance type by modifying the **
 instance_type = "m7i.4xlarge"** in the main.tf under the **ec2-vm module** section of the code. If you just change to an 8xlarge and then run **terraform apply** the module will destroy the old instance and rebuild with a larger instance size.
 
-2. To delete the demo:
-  a. Run Terraform destroy to delete all resources created
+## Deleting the Demo
+
+To delete the demo, run `terraform destroy` to delete all resources created.
 
 ## Considerations
 
