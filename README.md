@@ -6,7 +6,7 @@
 
 # Intel® Optimized Cloud Modules for Terraform
 
-© Copyright 2023, Intel Corporation
+© Copyright 2024, Intel Corporation
 
 ## AWS VM module
 
