@@ -185,13 +185,13 @@ You will need an active AWS account along with knowledge of how to use the AWS C
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.13.1 |
-| <a name="requirement_aws"></a> [aws](#requirement\_aws) | ~> 4.60 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | ~> 5.31 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | ~> 4.60 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | ~> 5.31 |
 
 ## Modules
 
