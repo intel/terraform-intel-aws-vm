@@ -7,7 +7,6 @@ package:
 
 runcmd:
   - apt install ansible docker.io -y
-  - reboot -h now
   - git clone https://github.com/intel/optimized-cloud-recipes/tree/wsfowler-gaudi.git /tmp/optimized-cloud-recipes
   - ansible-playbook /tmp/optimized-cloud-recipes/recipes/ai-gaudi-ubuntu/recipe.yml 
 
