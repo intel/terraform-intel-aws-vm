@@ -2,13 +2,14 @@
 package_update: true
 package_upgrade: true
 
-package:
-  - git
-
 runcmd:
-  - apt install ansible docker.io -y
-  - git clone https://github.com/intel/optimized-cloud-recipes/tree/wsfowler-gaudi.git /tmp/optimized-cloud-recipes
-  - ansible-playbook /tmp/optimized-cloud-recipes/recipes/ai-gaudi-ubuntu/recipe.yml 
+  - apt install git ansible docker.io -y
+  - git clone https://github.com/intel/optimized-cloud-recipes.git /opt/optimized-cloud-recipes
+  - cd /opt/optimized-cloud-recipes
+  - git checkout wsfowler-gaudi
+  - echo "@reboot ansible-playbook /opt/optimized-cloud-recipes/recipes/ai-gaudi-ubuntu/recipe.yml" | crontab - 
+  - reboot
+
 
 # Run the Ansible playbook from https://github.com/intel/optimized-cloud-recipes/tree/main/recipes/ai-gaudi-ubuntu/recipe.yml
 # Path: recipe.yml
