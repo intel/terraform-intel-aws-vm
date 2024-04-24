@@ -91,7 +91,7 @@ module "ec2-vm" {
 
   tags = {
     Name     = "my-test-vm-${count.index}-${random_id.rid.dec}"
-    Owner    = "OwnerName-${random_id.rid.dec}",
+    Owner    = "Fowler-${random_id.rid.dec}",
     Duration = "2"
   }
 }
