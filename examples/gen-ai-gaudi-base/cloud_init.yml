@@ -1,0 +1,9 @@
+#cloud-config
+package_update: true
+package_upgrade: true
+
+runcmd:
+  - apt install git ansible docker.io -y
+  - git clone https://github.com/intel/optimized-cloud-recipes.git /opt/optimized-cloud-recipes
+  - echo "@reboot ansible-playbook /opt/optimized-cloud-recipes/recipes/ai-gaudi-ubuntu/recipe.yml" | crontab - 
+  - reboot

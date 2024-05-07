@@ -1,4 +1,4 @@
-# Provision EC2 Instance on Icelake on Amazon Linux OS in default vpc. It is configured to create the EC2 in
+# Provision EC2 DL1 Instance on Ubuntu Linux OS in default vpc. It is configured to create the EC2 in
 # US-East-1 region. The region is provided in variables.tf in this example folder.
 
 # This example also create an EC2 key pair. Associate the public key with the EC2 instance. Create the private key
@@ -80,7 +80,7 @@ module "ec2-vm" {
   count = var.vm_count
   source            = "intel/aws-vm/intel"
   key_name          = aws_key_pair.TF_key.key_name
-  instance_type     = "m7i.4xlarge"
+  instance_type     = "dl1.24xlarge"
   availability_zone = "us-east-1c"
   ami               = data.aws_ami.ubuntu-linux-2204.id
   user_data         = data.cloudinit_config.ansible.rendered
