@@ -104,7 +104,11 @@ terraform plan
 terraform apply
 ```
 
-After the Terraform module successfully creates the EC2 instance, **wait ~10 minutes** for the recipe to download/install the Intel Gaudi driver and software.
+After the Terraform module successfully creates the EC2 instance, **wait ~15 minutes** for the recipe to download/install the Intel Gaudi driver and software. After the deployment is done, you can launch the Habana Gaudi PyTorch container using the following:
+
+```bash
+sudo docker run -it --runtime=habana -e HABANA_VISIBLE_DEVICES=all -e OMPI_MCA_btl_vader_single_copy_mechanism=none --cap-add=sys_nice --net=host --ipc=host vault.habana.ai/gaudi-docker/1.15.1/ubuntu22.04/habanalabs/pytorch-installer-2.2.0:latest
+```
 
 ## Deleting the Demo
 
