@@ -117,3 +117,9 @@ To delete the demo, run `terraform destroy` to delete all resources created.
 ## Considerations
 
 - The AWS region where this example is run should have a default VPC
+
+## Links
+
+[Intel® Gaudi® AI Accelerator](https://www.intel.com/content/www/us/en/products/details/processors/ai-accelerators/gaudi-overview.html)
+
+[Intel® Gaudi® AI Accelerator - Developer Website](https://developer.habana.ai/)
