@@ -108,7 +108,7 @@ After the Terraform module successfully creates the EC2 instance, wait 15 minute
 
 ## Run the demo
 
-To run the demo manually, after waiting for the dependencies to be downloaded and installed:
+To run the demo, after waiting for the dependencies to be downloaded and installed:
 
 ```shell
 cd /
