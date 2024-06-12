@@ -1,0 +1,12 @@
+#cloud-config
+package_update: true
+package_upgrade: true
+
+package:
+  - git
+
+runcmd:
+  - apt install ansible -y
+  - git clone https://github.com/optimized-cloud-recipes.git /tmp/optimized-cloud-recipes
+  - cd /tmp/optimized-cloud-recipes
+  - ansible-playbook recipes/ai-rag-amx-ubuntu/recipe.yml &
