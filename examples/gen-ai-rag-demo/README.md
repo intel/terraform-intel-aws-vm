@@ -6,9 +6,9 @@
 
 © Copyright 2024, Intel Corporation
 
-## AWS M7i EC2 Instance with 4th Generation Intel® Xeon® Scalable Processor (Sapphire Rapids) & Intel® Cloud Optimized Recipe for FastChat and Stable Diffusion
+## AWS M7i EC2 Instance with 4th Generation Intel® Xeon® Scalable Processor (Sapphire Rapids) & Intel® Cloud Optimized Recipe for Retrival Augmented Generated GenAI
 
-This demo will showcase Large Language Model(LLM) CPU inference using 4th Gen Xeon Scalable Processors on AWS using FastChat and Stable Diffusion
+This demo will showcase Large Language Model(LLM) CPU inference using 4th Gen Xeon Scalable Processors on AWS using RAG based Generative AI
 
 ## Usage
 
@@ -46,7 +46,7 @@ data "aws_ami" "ubuntu-linux-2204" {
 module "ec2-vm" {
   source            = "intel/aws-vm/intel"
   key_name          = aws_key_pair.TF_key.key_name
-  instance_type     = "m7i.8xlarge"
+  instance_type     = "m7i.16xlarge"
   availability_zone = "us-east-1a"
   ami               = data.aws_ami.ubuntu-linux-2204.id
   user_data         = data.cloudinit_config.ansible.rendered
@@ -84,16 +84,16 @@ tfenv install 1.3.0
 tfenv use 1.3.0
 ```
 
-Download and run the [Gen-AI-Demo](https://github.com/intel/terraform-intel-aws-vm/tree/main/examples/gen-ai-demo) Terraform Module by typing this command
+Download and run the [Gen-AI-RAG-Demo](https://github.com/intel/terraform-intel-aws-vm/tree/main/examples/gen-ai-rag-demo) Terraform Module by typing this command
 
 ```Shell
 git clone https://github.com/intel/terraform-intel-aws-vm.git
 ```
 
-Change into the `examples/gen-ai-demo` example folder
+Change into the `examples/gen-ai-rag-demo` example folder
 
 ```Shell
-cd terraform-intel-aws-vm/examples/gen-ai-demo
+cd terraform-intel-aws-vm/examples/gen-ai-rag-demo
 ```
 
 Run the Terraform Commands below to deploy the demos.
@@ -104,18 +104,28 @@ terraform plan
 terraform apply
 ```
 
-After the Terraform module successfully creates the EC2 instance, **wait ~15 minutes** for the recipe to download/install FastChat, Stable Diffusion and the LLM model before continuing.
+After the Terraform module successfully creates the EC2 instance, wait 15 minutes for the recipe to download and install the dependencies before continuing.
+
+## Run the demo
+
+To run the demo manually, after waiting for the dependencies to be downloaded and installed:
+
+```shell
+cd /
+cd tmp/optimized-cloud-recipes/recipes/ai-rag-ubuntu/
+sudo python amx_gradio_rag.py
+```
 
 ## Accessing the Demo
 
 You can access the demos using the following:
 
-- FastChat: `http://yourpublicip:7860`
-- Intel Optimized Stable Diffusion: `http://yourpublicip:5000`
-- Out of the box Stable Diffusion: `http://yourpublicip:5001`
+- RAG Demo: `http://yourpublicip:8080`
 
-- Note: This module is created using the m7i.4xlarge instance size, you can change your instance type by modifying the **
-instance_type = "m7i.4xlarge"** in the main.tf under the **ec2-vm module** section of the code. If you just change to an 8xlarge and then run **terraform apply** the module will destroy the old instance and rebuild with a larger instance size.
+- Note: Whenever you choose the Intel Neural chat model, it will take around 2 minutes to initialize and produce the first output.
+
+- Note: This module is created using the m7i.16xlarge instance size, you can change your instance type by modifying the **
+instance_type = "m7i.16xlarge"** in the main.tf under the **ec2-vm module** section of the code. If you just change to an 8xlarge and then run **terraform apply** the module will destroy the old instance and rebuild with a larger instance size.
 
 ## Deleting the Demo
 

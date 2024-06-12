@@ -7,7 +7,6 @@ package:
 
 runcmd:
   - apt install ansible -y
-  - git clone https://github.com/wsfowler/optimized-cloud-recipes.git /tmp/optimized-cloud-recipes
+  - git clone https://github.com/optimized-cloud-recipes.git /tmp/optimized-cloud-recipes
   - cd /tmp/optimized-cloud-recipes
-  - git checkout wsfowler-contributing
   - ansible-playbook recipes/ai-rag-amx-ubuntu/recipe.yml &
