@@ -8,7 +8,7 @@ package:
 runcmd:
   - apt install ansible -y
   - git clone https://github.com/intel/optimized-cloud-recipes.git /tmp/optimized-cloud-recipes
-   - cd /tmp/optimized-cloud-recipes/recipes/ai-opea-chatqna-xeon
+  - cd /tmp/optimized-cloud-recipes/recipes/ai-opea-chatqna-xeon
   - cp opea.sh /etc/profile.d/opea.sh
   - echo 'export HUGGINGFACEHUB_API_TOKEN=${HUGGINGFACEHUB_API_TOKEN}' | sudo tee -a /etc/profile.d/opea.sh
   - chmod +x /etc/profile.d/opea.sh
