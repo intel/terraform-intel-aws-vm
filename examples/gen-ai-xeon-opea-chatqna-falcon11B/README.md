@@ -2,12 +2,12 @@
   <img src="https://github.com/intel/terraform-intel-aws-vm/blob/main/images/logo-classicblue-800px.png?raw=true" alt="Intel Logo" width="250"/>
 </p>
 
-# Intel® Optimized Cloud Modules for Terraform - TII Falcon2-11B OPEA RAG ChatQnA on Intel® Xeon®
+# Intel® Optimized Cloud Modules for Terraform 
+
+# TII Falcon2-11B OPEA RAG ChatQnA on AWS c7i Intel® Xeon® instances
 
 © Copyright 2024, Intel Corporation
 
-
-## AWS M7i EC2 Instance with 4th Generation Intel® Xeon® Scalable Processor (Sapphire Rapids) & Open Platform for Enterprise AI (OPEA) ChatQnA Example
 
 ## Overview
 
@@ -65,7 +65,7 @@ data "aws_ami" "ubuntu-linux-2204" {
 module "ec2-vm" {
   source            = "intel/aws-vm/intel"
   key_name          = aws_key_pair.TF_key.key_name
-  instance_type     = "m7i.24xlarge"
+  instance_type     = "c7i.24xlarge"
   availability_zone = "us-east-1a"
   ami               = data.aws_ami.ubuntu-linux-2204.id
   user_data         = data.cloudinit_config.ansible.rendered
@@ -131,7 +131,7 @@ You can access the demos using the following:
 
 - OPEA ChatQnA: `http://yourpublicip:5174`
 
-- Note: This module is created using the m7i.24xlarge instance size, you can change your instance type by modifying the **instance_type = "m7i.24xlarge"** in the main.tf under the **ec2-vm module** section of the code. If you just change to an 16xlarge and then run **terraform apply** the module will destroy the old instance and rebuild with a larger instance size.
+- Note: This module is created using the c7i.24xlarge instance size, you can change your instance type by modifying the **instance_type = "c7i.24xlarge"** in the main.tf under the **ec2-vm module** section of the code. If you just change to an 16xlarge and then run **terraform apply** the module will destroy the old instance and rebuild with a larger instance size.
 
 ## Deleting the Demo
 
