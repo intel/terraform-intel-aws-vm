@@ -130,5 +130,6 @@ variable "vm_count" {
 # Variable for Huggingface Token
 variable "huggingface_token" {
   description = "Huggingface Token"
+  default     = " <YOUR HUGGINGFACE TOKEN> "
   type        = string
 }
