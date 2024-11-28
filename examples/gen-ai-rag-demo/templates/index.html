@@ -1,0 +1,135 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple RAG Demo</title>
+    <style>
+        /* Add your CSS styles here to customize the UI */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            color: #1d74d1
+        }
+        #prompt-input {
+            width: 80%;
+            padding: 10px;
+        }
+        #query-button {
+            padding: 10px 20px;
+            background-color: #1d74d1;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        #load-model {
+            padding: 10px 20px;
+            background-color: #1d74d1;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        #generated-image {
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+        }
+        #result-display {
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Simple RAG Demo</h1>
+    <div class="model-config">
+    <form id="model-config" method="POST" action="/">
+        <!--Add a dropdown menu to select the model, default to Falcon -->
+        <h2>Configure and load the model</h2>
+        <label for="model">Choose a model:</label>
+        <select name="model">
+            <option value="Falcon" selected>Falcon</option>
+        </select>
+
+        <!--Add a dropdown menu to select the dataset to use from 'robot maintenance', 'basketball coach', 'physics professor', 'grocery cashier' -->
+        <label for="dataset">Choose a dataset:</label>
+        <select name="dataset">
+            <option value="robot maintenance">Robot maintenance</option>
+            <option value="basketball coach">Basketball coach</option>
+            <option value="physics professor">Physics professor</option>
+            <option value="grocery cashier">Grocery cashier</option>
+        </select>
+        
+        <!-- Add a slider to select the top-k value, default to 2 -->
+        <label for="top-k-slider">Top-k Value:</label>
+        <input type="range" id="top-k-slider" name="top-k-slider" min="1" max="4" value="2">
+        
+        <!-- Add a checkbox to turn on or off RAG, default to true-->
+        <!-- <label for="useRag">Don't Use RAG:</label>
+        <input type="checkbox" id="useRag" name="useRag" value="False"> -->
+
+        <!-- Add a button to load the model using the values entered above -->
+        <button id="load-model" type="submit">Load Model</button>
+
+    </form>
+    </div>
+
+    <!-- Query section -->
+    <div class="query">
+        <form id="query" method="POST" action="/query">
+        <h2>Enter your query:</h2>
+        <input type="text" id="prompt-input" name="prompt" placeholder="Enter your query here..." value="{{ question }}">
+        <button id="query-button">Submit Query</button>
+
+        <!-- Display the results from the model -->
+        <h2>Response:</h2>
+        <textarea id="result-display" name="result" rows="10" cols="80" readonly placeholder="Response will display here">{{ result }}</textarea>
+<!--         
+        {% if result %}
+            <h2>Output</h2>
+            <p>{{ result }}</p>
+        {% endif %} -->
+        </form>
+    </div>
+ 
+
+    <script>
+        // JavaScript to handle UI interactions
+        const queryButton = document.getElementById('query-button');
+        const promptInput = document.getElementById('prompt-input');
+        const resultDisplay = document.getElementById('result-display');
+        const loadModel = document.getElementById('load-model');
+
+       // JavaScript to handle the user clicking on the load model button
+
+        loadModel.addEventListener('click', async () => {
+            const model = document.querySelector('select[name="model"]').value;
+            const dataset = document.querySelector('select[name="dataset"]').value;
+            const topK = document.querySelector('input[name="top-k-slider"]').value;
+            //const useRag = document.querySelector('input[name="useRag"]').checked;
+
+            // Create a URL-encoced string from the form data
+            const formData = new URLSearchParams();
+            formData.append('model', model);
+            formData.append('dataset', dataset);
+            formData.append('top-k-slider', topK);
+            //formData.append('useRag', useRag);
+
+            // Send a POST request to the server with the form data
+            const response = await fetch('/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: formData
+            });
+
+            // Reload the page to load the new model
+            location.reload();
+        });
+
+    </script>
+</body>
+</html>
