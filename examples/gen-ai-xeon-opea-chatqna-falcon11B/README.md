@@ -129,7 +129,7 @@ After the Terraform module successfully creates the EC2 instance, **wait ~15 min
 
 You can access the demos using the following:
 
-- OPEA ChatQnA: `http://yourpublicip:5173`
+- OPEA ChatQnA: `http://yourpublicip:5174`
 
 - Note: This module is created using the c7i.24xlarge instance size, you can change your instance type by modifying the **instance_type = "c7i.24xlarge"** in the main.tf under the **ec2-vm module** section of the code. If you just change to an 16xlarge and then run **terraform apply** the module will destroy the old instance and rebuild with a larger instance size.
 
