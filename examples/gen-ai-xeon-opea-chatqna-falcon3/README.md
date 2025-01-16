@@ -44,14 +44,26 @@ Use https://whatismyipaddress.com/ to find your Public IP.
 # Variable for Huggingface Token
 variable "huggingface_token" {
   description = "Huggingface Token"
-  default     = "<YOUR HUGGINGFACE TOKEN>" #UPDATE
+  default     = "hf_token"
   type        = string
 }
 
 variable "region" {
   description = "Target AWS region to deploy EC2 in."
   type        = string
-  default     = "us-east-1" #UPDATE if needed
+  default     = "us-east-1"
+}
+
+variable "availability_zone" {
+  description = "Target AWS availability zone to deploy EC2 in."
+  type        = string
+  default     = "us-east-1d"
+}
+
+variable "instance_type" {
+  description = "Instance type to deploy."
+  type        = string
+  default     = "c7i.24xlarge"
 }
 
 # Variable to add ingress rules to the security group. Replace the default values with the required ports and CIDR ranges.
@@ -70,33 +82,6 @@ variable "ingress_rules" {
       cidr_blocks = "0.0.0.0/0" #UPDATE if needed, ex: 192.10.50.42/32
 
     }
-```
-
-### main.tf
-
-If there is a need to to modify the EC2 Instance, modify main.tf:
-
-`instance_type     = "c7i.24xlarge"`
-
-```hcl
-module "ec2-vm" {
-  source            = "intel/aws-vm/intel"
-  key_name          = aws_key_pair.TF_key.key_name
-  instance_type     = "c7i.24xlarge"
-  availability_zone = "us-east-1a"
-  ami               = data.aws_ami.ubuntu-linux-2204.id
-  user_data         = data.cloudinit_config.ansible.rendered
-
-  root_block_device = [{
-    volume_size = "500"
-  }]
-
-  tags = {
-    Name     = "my-test-vm-${random_id.rid.dec}"
-    Owner    = "OwnerName-${random_id.rid.dec}",
-    Duration = "2"
-  }
-}
 ```
 
 ## Usage from command line - Assumes you have Git, AWS CLI, and Terraform installed
