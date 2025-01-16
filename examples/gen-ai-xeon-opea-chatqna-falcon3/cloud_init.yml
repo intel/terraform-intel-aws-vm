@@ -1,0 +1,16 @@
+#cloud-config
+package_update: true
+package_upgrade: true
+
+package:
+  - git
+
+runcmd:
+  - apt install ansible -y
+  - git clone https://github.com/intel/optimized-cloud-recipes.git /tmp/optimized-cloud-recipes
+  - cd /tmp/optimized-cloud-recipes/recipes/ai-opea-chatqna-xeon-falcon3
+  - cp opea.sh /etc/profile.d/opea.sh
+  - echo 'export HUGGINGFACEHUB_API_TOKEN=${HUGGINGFACEHUB_API_TOKEN}' | sudo tee -a /etc/profile.d/opea.sh
+  - chmod +x /etc/profile.d/opea.sh
+  - source /etc/profile.d/opea.sh
+  - ansible-playbook recipe.yml
