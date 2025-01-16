@@ -44,7 +44,7 @@ Use https://whatismyipaddress.com/ to find your Public IP.
 # Variable for Huggingface Token
 variable "huggingface_token" {
   description = "Huggingface Token"
-  default     = "hf_token"
+  default     = "<YOUR HUGGINGFACE TOKEN>" #UPDATE with your Huggingface Token
   type        = string
 }
 
@@ -93,6 +93,10 @@ git clone https://github.com/intel/terraform-intel-aws-vm.git
 # Change into the example folder
 cd terraform-intel-aws-vm/examples/gen-ai-xeon-opea-chatqna-falcon3
 
+########################################################
+# MODIFY VARIABLES.tf before continuing 
+########################################################
+
 # Run the Terraform Commands below to deploy the demo.
 terraform init
 terraform plan
@@ -121,7 +125,9 @@ git clone https://github.com/intel/terraform-intel-aws-vm.git
 # Change into the example folder
 cd terraform-intel-aws-vm/examples/gen-ai-xeon-opea-chatqna-falcon3
 
-# MODIFY VARIABLES.tf before continuining 
+########################################################
+# MODIFY VARIABLES.tf before continuing 
+########################################################
 
 # Run the Terraform Commands below to deploy the demo.
 terraform init
