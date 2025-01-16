@@ -87,8 +87,8 @@ module "ec2-vm" {
   }]
 
   tags = {
-    Name     = "falcon2-opea-vm-${count.index}-${random_id.rid.dec}"
-    Owner    = "falcon2-opea-${random_id.rid.dec}",
+    Name     = "falcon3-opea-vm-${count.index}-${random_id.rid.dec}"
+    Owner    = "falcon3-opea-${random_id.rid.dec}",
     Duration = "1"
   }
 }

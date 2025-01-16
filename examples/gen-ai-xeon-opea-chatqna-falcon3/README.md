@@ -2,22 +2,27 @@
   <img src="https://github.com/intel/terraform-intel-aws-vm/blob/main/images/logo-classicblue-800px.png?raw=true" alt="Intel Logo" width="250"/>
 </p>
 
-# Intel® Optimized Cloud Modules for Terraform 
+# Intel® Optimized Cloud Modules for Terraform
 
-# TII Falcon2-11B OPEA RAG ChatQnA on AWS c7i Intel® Xeon® instances
+# TII Falcon3-7B using OPEA RAG ChatQnA on AWS c7i Intel® Xeon® instances
 
 © Copyright 2024, Intel Corporation
 
-
 ## Overview
 
-This Module deploys the TII Falcon2-11B model using the Open Platform for Enterprise AI (OPEA) RAG ChatQnA example on a Intel® Xeon® c7i AWS Instance. 
+This Module deploys the TII Falcon3-7B model using the Open Platform for Enterprise AI (OPEA) RAG ChatQnA example on a Intel® Xeon® c7i AWS Instance.
 
-The TII Falcon2-11B model is a large language model (LLM) that is optimized for Intel® Advanced Matrix Extensions (AMX) and is hosted on Hugging Face. 
+The TII Falcon3-7B model is a large language model (LLM) that is optimized for Intel® Advanced Matrix Extensions (AMX) and is hosted on Hugging Face.
 
-The OPEA RAG ChatQnA example is a question and answer (QnA) chatbot that uses the TII Falcon2-11B model to answer questions from private documents using RAG. This example is optimized for Intel® Xeon® processors and can be run on any cloud provider or on-premises.
+[TII Falcon 3 - Click here more information](https://www.tii.ae/news/falcon-3-uaes-technology-innovation-institute-launches-worlds-most-powerful-small-ai-models)
 
-This demo will showcase Retrieval Augmented Generation (RAG) CPU inference using 4th Gen Xeon Scalable Processors on AWS using the OPEA ChatQnA Example. For more information about OPEA, go [here](https://opea.dev/). For more information on this specific example, go [here](https://github.com/opea-project/GenAIExamples/tree/main/ChatQnA).
+The OPEA RAG ChatQnA example is a question and answer (QnA) chatbot that uses the TII Falcon3-7B model to answer questions from private documents using RAG. This example is optimized for Intel® Xeon® processors and can be run on any cloud provider or on-premises.
+
+[Open Platform for Enterprise AI (OPEA) Project](https://opea.dev/)
+
+[OPEA ChatQna Example link](https://github.com/opea-project/GenAIExamples/tree/main/ChatQnA).
+
+
 
 ## Pre-requisites
 
@@ -94,11 +99,16 @@ module "ec2-vm" {
 }
 ```
 
-## Usage
+## Usage from command line - Assumes you have Git, AWS CLI, and Terraform installed
 
-Run the Terraform Commands below to deploy the demos.
+```bash
+# Clone the Repo
+git clone https://github.com/intel/terraform-intel-aws-vm.git
 
-```Shell
+# Change into the example folder
+cd terraform-intel-aws-vm/examples/gen-ai-xeon-opea-chatqna-falcon3
+
+# Run the Terraform Commands below to deploy the demo.
 terraform init
 terraform plan
 terraform apply
@@ -117,35 +127,64 @@ tfenv install 1.3.0
 tfenv use 1.3.0
 ```
 
-Download and run the [OPEA ChatQnA on Xeon](https://github.com/intel/terraform-intel-aws-vm/tree/main/examples/gen-ai-xeon-opea-chatqna-falcon11B) Terraform Module by typing this command
+Provision the demo
 
-```Shell
+```bash
+# Clone the Repo
 git clone https://github.com/intel/terraform-intel-aws-vm.git
-```
 
-Change into the `examples/gen-ai-xeon-opea-chatqna-falcon11B` example folder
+# Change into the example folder
+cd terraform-intel-aws-vm/examples/gen-ai-xeon-opea-chatqna-falcon3
 
-```Shell
-cd terraform-intel-aws-vm/examples/gen-ai-xeon-opea-chatqna-falcon11B
-```
+# MODIFY VARIABLES.tf before continuining 
 
-Run the Terraform Commands below to deploy the demos.
-
-```Shell
+# Run the Terraform Commands below to deploy the demo.
 terraform init
 terraform plan
 terraform apply
 ```
 
-After the Terraform module successfully creates the EC2 instance, **wait ~15 minutes** for the recipe to build and launch the containers before continuing.
-
 ## Accessing the Demo
+
+### Wait ~15 minutes for the components to be downloaded and installed before continuing
 
 You can access the demos using the following:
 
 - OPEA ChatQnA: `http://yourpublicip:5173`
 
 - Note: This module is created using the c7i.24xlarge instance size, you can change your instance type by modifying the **instance_type = "c7i.24xlarge"** in the main.tf under the **ec2-vm module** section of the code. If you just change to an 16xlarge and then run **terraform apply** the module will destroy the old instance and rebuild with a larger instance size.
+
+## Tips
+
+1. To SSH into the instance, you can use the following command:
+
+```bash
+chmod 600 tfkey.private
+ssh ubuntu@THE_PUBLIC_IP -i tfkey.private
+```
+
+2. To restart the software stack or to troubleshoot:
+
+```bash
+
+# Get root access
+sudo bash
+
+# Source variables
+. /etc/profile.d/opea.sh
+
+# Set OPEA docker image tag value
+export TAG="1.0"
+
+# Navigate to folder
+cd /opt/GenAIExamples/ChatQnA/docker_compose/intel/cpu/xeon
+
+# Stop 
+docker compose -f compose2.yaml down
+
+# Start
+docker compose -f compose2.yaml up  # or docker compose -f compose2.yaml up -d
+```
 
 ## Deleting the Demo
 

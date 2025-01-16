@@ -1,8 +1,8 @@
 # Variable for Huggingface Token
 variable "huggingface_token" {
   description = "Huggingface Token"
-  type        = string
   #default     = "hf_token"
+  type        = string
 }
 
 variable "region" {
