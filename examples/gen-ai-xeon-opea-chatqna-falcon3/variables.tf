@@ -2,13 +2,25 @@
 variable "huggingface_token" {
   description = "Huggingface Token"
   #default     = "hf_token"
-  type        = string
+  type = string
 }
 
 variable "region" {
   description = "Target AWS region to deploy EC2 in."
   type        = string
   default     = "us-east-1"
+}
+
+variable "availability_zone" {
+  description = "Target AWS availability zone to deploy EC2 in."
+  type        = string
+  default     = "us-east-1d"
+}
+
+variable "instance_type" {
+  description = "Instance type to deploy."
+  type        = string
+  default     = "c7i.24xlarge"
 }
 
 # Variable to add ingress rules to the security group. Replace the default values with the required ports and CIDR ranges.

@@ -77,8 +77,8 @@ module "ec2-vm" {
   count             = var.vm_count
   source            = "intel/aws-vm/intel"
   key_name          = aws_key_pair.TF_key.key_name
-  instance_type     = "c7i.24xlarge"
-  availability_zone = "us-east-1d"
+  instance_type     = var.instance_type
+  availability_zone = var.availability_zone
   ami               = data.aws_ami.ubuntu-linux-2204.id
   user_data         = data.cloudinit_config.ansible.rendered
 
