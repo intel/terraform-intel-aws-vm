@@ -4,7 +4,7 @@
 
 # Intel® Optimized Cloud Modules for Terraform - Code Generation by OPEA on Intel® Xeon®
 
-© Copyright 2024, Intel Corporation
+© Copyright 2025, Intel Corporation
 
 
 ## AWS c7i EC2 Instance with 4th Generation Intel® Xeon® Scalable Processor (Sapphire Rapids) & Open Platform for Enterprise AI (OPEA) Code Generation Example

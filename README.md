@@ -6,13 +6,13 @@
 
 # Intel® Optimized Cloud Modules for Terraform
 
-© Copyright 2024, Intel Corporation
+© Copyright 2025, Intel Corporation
 
 ## AWS VM module
 
-Configuration in this directory creates an AWS VM (EC2 Instance).   The instance is created on an 3rd Generation Intel® Xeon® Scalable Processor (IceLake) by default.  
+Configuration in this directory creates an AWS VM (EC2 Instance). The instance is created on an 5th generation Intel® Xeon® Scalable Processor (Emerald Rapids) by default. 
 
-## Performance Data
+## Performance Data - Update needed as module runs on Emerald Rapids
 
 
 <center>

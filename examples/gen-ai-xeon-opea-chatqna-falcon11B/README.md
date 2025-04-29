@@ -6,7 +6,7 @@
 
 # TII Falcon2-11B OPEA RAG ChatQnA on AWS c7i Intel® Xeon® instances
 
-© Copyright 2024, Intel Corporation
+© Copyright 2025, Intel Corporation
 
 
 ## Overview
