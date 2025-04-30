@@ -8,7 +8,7 @@
 
 ## Terraform Intel AWS VM - Linux VM with Capacity Reservation in Default VPC
 
-This example provisions a capacity reservation in AWS availability zone us-east-1d. This capacity reservation is used for instance type m6i.large for Linux/UNIX in this availability zone. Instance eligibility for this capacity reservation will be targetted.
+This example provisions a capacity reservation in AWS availability zone us-east-1d. This capacity reservation is used for instance type m7i.large for Linux/UNIX in this availability zone. Instance eligibility for this capacity reservation will be targetted.
 
 Following the capacity reservation, it provisions an EC2 Instance on a 4th Generation Intel® Xeon® Scalable Processor (Sapphire Rapids) on Linux OS in the default vpc using the targetted capacity reservation created in the above step. It creates the EC2 instance in US-East-1 region. The region is provided in variables.tf in this example folder.
 
