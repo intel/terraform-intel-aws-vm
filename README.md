@@ -10,7 +10,7 @@
 
 ## AWS VM module
 
-Configuration in this directory creates an AWS VM (EC2 Instance). The instance is created on an 5th generation Intel® Xeon® Scalable Processor (Emerald Rapids) by default. 
+Configuration in this directory creates an AWS VM (EC2 Instance). The instance is created on an 4th generation Intel® Xeon® Scalable Processor (Sapphire Rapids) by default. 
 
 ## Performance Data - Update needed as module runs on Emerald Rapids
 
