@@ -1,0 +1,35 @@
+9d1dfcc69b7'}>], 'root_node': 'Query', 'params': {'Retriever': {'top_k': 10}, 'Reranker': {'top_k': 1}, 'generation_kwargs': {'max_length': 10, 'do_sample': False}}, 'query': 'Who is the sister of Sansa?', 'node_id': 'Reranker'}
+2024-03-01 20:20:26,294 - haystack.nodes.ranker.base - DEBUG - Retrieved documents with IDs: ['a9245aa3e99dd4cd413b8439ca530ef9']
+2024-03-01 20:20:26,294 - haystack.pipelines.base - DEBUG - Running node 'Prompter` with input: {'documents': [<Document: {'content': "==Character and appearances==\nSansa Stark is the second child and elder daughter of Eddard Stark and Catelyn Stark. She was born and raised in Winterfell, until leaving with her father and sister at the beginning of the series. She was raised with a younger sister Arya Stark, two younger brothers Rickon Stark and Bran Stark, as well as an older brother Robb Stark, and an older illegitimate half-brother, Jon Snow.\n\nRaised as a lady, Sansa is traditionally feminine. Sansa's interests are music, poetry, and singing. She strives to become like the heroines of romantic tales by attempting to find a prince, knight, or gentleman to fall in love with. For a companion animal, she owned a direwolf named Lady. However, Lady was killed in place of Arya's direwolf, Nymeria, after Nymeria attacked the Crown Prince, Joffrey Baratheon, and later fled.\n\nSansa has been described as tall, slim, womanly, and beautiful, destined to be a lady or a queen. She has blue eyes and thick auburn hair that she inherits from her mother, who came from House Tully in the Riverlands region prior to her marriage to Eddard Stark. ", 'content_type': 'text', 'score': 0.9990221261978149, 'meta': {'_split_id': 1}, 'id_hash_keys': ['content'], 'embedding': None, 'id': 'a9245aa3e99dd4cd413b8439ca530ef9'}>], 'root_node': 'Query', 'params': {'Retriever': {'top_k': 10}, 'Reranker': {'top_k': 1}, 'generation_kwargs': {'max_length': 10, 'do_sample': False}}, 'query': 'Who is the sister of Sansa?', 'node_id': 'Prompter'}
+2024-03-01 20:20:26,294 - haystack.pipelines.base - DEBUG - Exception while running node 'Prompter' with input {'documents': [<Document: {'content': "==Character and appearances==\nSansa Stark is the second child and elder daughter of Eddard Stark and Catelyn Stark. She was born and raised in Winterfell, until leaving with her father and sister at the beginning of the series. She was raised with a younger sister Arya Stark, two younger brothers Rickon Stark and Bran Stark, as well as an older brother Robb Stark, and an older illegitimate half-brother, Jon Snow.\n\nRaised as a lady, Sansa is traditionally feminine. Sansa's interests are music, poetry, and singing. She strives to become like the heroines of romantic tales by attempting to find a prince, knight, or gentleman to fall in love with. For a companion animal, she owned a direwolf named Lady. However, Lady was killed in place of Arya's direwolf, Nymeria, after Nymeria attacked the Crown Prince, Joffrey Baratheon, and later fled.\n\nSansa has been described as tall, slim, womanly, and beautiful, destined to be a lady or a queen. She has blue eyes and thick auburn hair that she inherits from her mother, who came from House Tully in the Riverlands region prior to her marriage to Eddard Stark. ", 'content_type': 'text', 'score': 0.9990221261978149, 'meta': {'_split_id': 1}, 'id_hash_keys': ['content'], 'embedding': None, 'id': 'a9245aa3e99dd4cd413b8439ca530ef9'}>], 'root_node': 'Query', 'params': {'Retriever': {'top_k': 10}, 'Reranker': {'top_k': 1}, 'generation_kwargs': {'max_length': 10, 'do_sample': False}}, 'query': 'Who is the sister of Sansa?', 'node_id': 'Prompter'}
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/haystack/pipelines/base.py", line 567, in run
+    node_output, stream_id = self._run_node(node_id, node_input)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/haystack/pipelines/base.py", line 469, in _run_node
+    return self.graph.nodes[node_id]["component"]._dispatch_run(**node_input)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/haystack/nodes/base.py", line 201, in _dispatch_run
+    return self._dispatch_run_general(self.run, **kwargs)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/haystack/nodes/base.py", line 245, in _dispatch_run_general
+    output, stream = run_method(**run_inputs, **run_params)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/haystack/nodes/prompt/prompt_node.py", line 312, in run
+    results = self(**invocation_context, prompt_collector=prompt_collector)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/haystack/nodes/prompt/prompt_node.py", line 140, in __call__
+    return self.prompt(prompt_template, *args, **kwargs)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/haystack/nodes/prompt/prompt_node.py", line 163, in prompt
+    for prompt in template_to_fill.fill(*args, **kwargs):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/haystack/nodes/prompt/prompt_template.py", line 564, in fill
+    template_dict = self.prepare(*args, **kwargs)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/haystack/nodes/prompt/prompt_template.py", line 519, in prepare
+    raise ValueError(
+ValueError: Expected prompt parameters ['document_store', 'query'] to be provided but got only ['query']. Make sure to provide all template parameters.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/fastrag/fastrag.py", line 104, in <module>
+    answer_result = pipe.run(query="Who is the sister of Sansa?", params={
+  File "/home/ubuntu/fastrag/fastrag/utils.py", line 34, in wrapper
+    ret = fn(*args, **kwargs)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/haystack/pipelines/base.py", line 574, in run
+    raise Exception(
+Exception: Exception while running node 'Prompter': Expected prompt parameters ['document_store', 'query'] to be provided but got only ['query']. Make sure to provide all template parameters.
