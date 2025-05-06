@@ -20,6 +20,4 @@ Intel® provides a list of `optimal` instance types per cloud resource, selected
 
 This library also contains `recommended` instance types for AI and Confidential Computing workloads. For more information regarding Intel's AI and Confidential Computing capabilities and policies see the Intel® Xeon® Scalable Processors and Intel® Advanced Matrix Extensions (AMX) and Intel® Xeon® Scalable Processors and Confidential Computing sections in the [intel-policy-library](https://github.com/intel/intel-policy-library)
 
-## Links
-https://aws.amazon.com/ec2/instance-types/ 
 
