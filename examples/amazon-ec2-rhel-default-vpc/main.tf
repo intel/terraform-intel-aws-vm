@@ -35,7 +35,7 @@ resource "aws_security_group" "ssh_security_group" {
     protocol  = "tcp"
 
     ## CHANGE THE IP CIDR BLOCK BELOW TO ALL YOUR OWN SSH PORT ##
-    cidr_blocks = ["a.b.c.d/x"]
+    cidr_blocks = ["192.55.0.0/16"]
   }
 }
 
@@ -47,10 +47,11 @@ resource "aws_network_interface_sg_attachment" "sg_attachment" {
 module "ec2-vm" {
   source            = "intel/aws-vm/intel"
   key_name          = aws_key_pair.TF_key.key_name
-  ami               = "ami-0c41531b8d18cc72b"
+  #ami               = "ami-0c41531b8d18cc72b"
+  ami = "vmi-intel-base-ubuntu22-aws-spr-2025-05-23-20-24"
   tags = {
-    Name     = "my-test-vm-${random_id.rid.dec}"
-    Owner    = "OwnerName-${random_id.rid.dec}",
+    Name     = "Mihika-vm-${random_id.rid.dec}"
+    Owner    = "Mihika-${random_id.rid.dec}",
     Duration = "2"
   }
 }
