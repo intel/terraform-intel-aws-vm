@@ -36,6 +36,17 @@ resource "aws_key_pair" "TF_key" {
   public_key = tls_private_key.rsa.public_key_openssh
 }
 
+# The section below is used when leveraging reserved instance capacity that you have purchased from AWS
+# Create capacity reservation for EC2
+# resource "aws_ec2_capacity_reservation" "thiscapacity" {
+#   instance_type           = "m8i.large"
+#   instance_platform       = "Linux/UNIX"
+#   availability_zone       = "us-east-1d"
+#   instance_match_criteria = "targeted"
+#   instance_count          = 1
+# }
+
+
 resource "local_file" "TF_private_key" {
   content  = tls_private_key.rsa.private_key_pem
   filename = "tfkey.private"

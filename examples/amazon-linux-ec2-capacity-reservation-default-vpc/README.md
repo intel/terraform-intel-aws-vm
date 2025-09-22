@@ -36,6 +36,15 @@ variable "region" {
 main.tf
 ```hcl
 
+# Create capacity reservation for EC2
+# resource "aws_ec2_capacity_reservation" "thiscapacity" {
+#   instance_type           = "m8i.large"
+#   instance_platform       = "Linux/UNIX"
+#   availability_zone       = "us-east-1d"
+#   instance_match_criteria = "targeted"
+#   instance_count          = 1
+# }
+
 resource "random_id" "rid" {
   byte_length = 5
 }
