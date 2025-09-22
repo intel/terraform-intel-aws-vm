@@ -10,10 +10,10 @@
 
 ## AWS VM module
 
-Configuration in this directory creates an AWS VM (EC2 Instance). The instance is created on an 4th generation Intel® Xeon® Scalable Processor (Sapphire Rapids) by default. 
+As of today, M8i instances are available on AWS which provide high-performance compute with the latest Intel processors and enhanced memory bandwidth. Configuration in this directory creates an AWS VM (EC2 Instance). The instance is created on an 6th generation Intel® Xeon® Scalable Processor (Granite Rapids) by default. 
 
 ## Performance Data
-
+### Below performance data is for Sapphire Rapids and Granite Rapids will be coming soon.. 
 
 <center>
 

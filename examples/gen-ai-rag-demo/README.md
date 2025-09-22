@@ -4,11 +4,11 @@
 
 # Intel® Optimized Cloud Modules for Terraform
 
-© Copyright 2024, Intel Corporation
+© Copyright 2025, Intel Corporation
 
-## AWS M7i EC2 Instance with 4th Generation Intel® Xeon® Scalable Processor (Sapphire Rapids) & Intel® Cloud Optimized Recipe for Retrival Augmented Generated GenAI
+## AWS M8i EC2 Instance with 6th Generation Intel® Xeon® Scalable Processor (Granite Rapids) & Intel® Cloud Optimized Recipe for Retrival Augmented Generated GenAI
 
-This demo will showcase Large Language Model(LLM) CPU inference using 4th Gen Xeon Scalable Processors on AWS using RAG based Generative AI
+This demo will showcase Large Language Model(LLM) CPU inference using 6th Gen Xeon Scalable Processors on AWS using RAG based Generative AI
 
 ## Usage
 
@@ -46,7 +46,7 @@ data "aws_ami" "ubuntu-linux-2204" {
 module "ec2-vm" {
   source            = "intel/aws-vm/intel"
   key_name          = aws_key_pair.TF_key.key_name
-  instance_type     = "m7i.16xlarge"
+  instance_type     = "m8i.16xlarge"
   availability_zone = "us-east-1a"
   ami               = data.aws_ami.ubuntu-linux-2204.id
   user_data         = data.cloudinit_config.ansible.rendered

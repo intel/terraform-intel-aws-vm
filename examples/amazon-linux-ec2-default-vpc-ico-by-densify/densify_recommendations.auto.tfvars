@@ -2,7 +2,7 @@ densify_recommendations = {
 
   "mobile-app-user2" = {
     currentType = "m4.xlarge"
-    recommendedType = "m6i.xlarge"
+    recommendedType = "m8i.xlarge"
     approvalType = "all"
     predictedUptime = "80.61"
     recommendationType = "Modernize"

@@ -6,7 +6,7 @@
 
 © Copyright 2025, Intel Corporation
 
-## AWS M7i EC2 Instance with 4th Generation Intel® Xeon® Scalable Processor (Sapphire Rapids) & Open Platform for Enterprise AI (OPEA) ChatQnA Example
+## AWS M8i EC2 Instance with 6th Generation Intel® Xeon® Scalable Processor (Granite Rapids) & Open Platform for Enterprise AI (OPEA) ChatQnA Example
 
 This demo will showcase Retrieval Augmented Generation (RAG) CPU inference using 4th Gen Xeon Scalable Processors on AWS using the OPEA ChatQnA Example. For more information about OPEA, go [here](https://opea.dev/). For more information on this specific example, go [here](https://github.com/opea-project/GenAIExamples/tree/main/ChatQnA).
 
@@ -56,7 +56,7 @@ data "aws_ami" "ubuntu-linux-2204" {
 module "ec2-vm" {
   source            = "intel/aws-vm/intel"
   key_name          = aws_key_pair.TF_key.key_name
-  instance_type     = "m7i.8xlarge"
+  instance_type     = "m8i.8xlarge"
   availability_zone = "us-east-1a"
   ami               = data.aws_ami.ubuntu-linux-2204.id
   user_data         = data.cloudinit_config.ansible.rendered

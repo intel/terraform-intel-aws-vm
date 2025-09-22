@@ -1,4 +1,4 @@
-# Provision EC2 Instance on Icelake on Windows 2019 Server OS in default vpc. It is configured to create the EC2 in
+# Provision EC2 Instance on Granite Rapids on Windows 2019 Server OS in default vpc. It is configured to create the EC2 in
 # US-East-1 region. The region is provided in variables.tf in this example folder.
 
 # This example also create an EC2 key pair. Associate the public key with the EC2 instance. Create the private key
@@ -46,7 +46,7 @@ resource "aws_network_interface_sg_attachment" "sg_attachment" {
 
 module "ec2-vm" {
   source   = "intel/aws-vm/intel"
-  ami      = "ami-0fc682b2a42e57ca2"
+  ami      = "ami-01479737875b4131d"
   key_name = aws_key_pair.TF_key.key_name
   tags = {
     Name     = "my-test-vm-${random_id.rid.dec}"
