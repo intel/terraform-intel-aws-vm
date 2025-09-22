@@ -8,7 +8,7 @@
 
 ## Terraform Intel AWS VM - Windows VM in Default VPC
 
-This example creates an AWS EC2 Instance on 4th Generation Intel® Xeon® Scalable Processor (Sapphire Rapids) on Windows 2019 Server OS in default VPC. It is configured to create the EC2 instance in US-East-1 region. The region is provided in variables.tf in this example folder.
+This example creates an AWS EC2 Instance on 6th Generation Intel® Xeon® Scalable Processor (Granite Rapids) on Windows 2019 Server OS in default VPC. It is configured to create the EC2 instance in US-East-1 region. The region is provided in variables.tf in this example folder.
 
 This example also creates an EC2 key pair. It associates the public key with the EC2 instance. The private key is created in the local system where terraform apply is done. It also creates a new scurity group to open up the RDP port 3389 to a specific IP CIDR block. Use the private key to generate the Windows login password (via RDP) following AWS prescribed documentation.
 

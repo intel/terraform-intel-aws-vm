@@ -1,4 +1,4 @@
-# Provision EC2 Spot Instance request on Icelake on Amazon Linux OS in default vpc. It is configured to create the EC2 in
+# Provision EC2 Spot Instance request on Granite Rapids on Amazon Linux OS in default vpc. It is configured to create the EC2 in
 # US-East-1 region. The region is provided in variables.tf in this example folder.
 
 # To apply the changes, run command terraform apply. Once the spot request is created, check the status

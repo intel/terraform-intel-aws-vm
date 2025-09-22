@@ -16,7 +16,7 @@ variable "name" {
 variable "densify_fallback" {
   type = map(string)
   default = {
-    recommendedType          = "m6i.large"
+    recommendedType          = "m8i.large"
     currentType              = "m5.2xlarge"
     approvalType             = "all"
     savingsEstimate          = "0"

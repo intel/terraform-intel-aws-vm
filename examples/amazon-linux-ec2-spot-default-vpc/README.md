@@ -8,7 +8,7 @@
 
 ## Terraform Intel AWS VM - Spot Linux VM in Default VPC
 
-This example creates EC2 Spot Instance request on 4th Generation Intel® Xeon® Scalable Processor (Sapphire Rapids) on Amazon Linux OS in default vpc. It is configured to create the EC2 instance in US-East-1 region. The region is provided in variables.tf in this example folder.
+This example creates EC2 Spot Instance request on 6th Generation Intel® Xeon® Scalable Processor (Granite Rapids) on Amazon Linux OS in default vpc. It is configured to create the EC2 instance in US-East-1 region. The region is provided in variables.tf in this example folder.
 
 To apply the changes, run command terraform apply. Once the spot request is created, check the status of the spot request in AWS Console or using CLI commands
 

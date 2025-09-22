@@ -1,4 +1,4 @@
-# Provision EC2 Instance on Icelake on Amazon Linux OS in non-default vpc. The non-default VPC id is needed to be
+# Provision EC2 Instance on Granite Rapids on Amazon Linux OS in non-default vpc. The non-default VPC id is needed to be
 # passed in this module as a variable.
 
 # To terraform apply the changes, run command terraform apply -var="vpc_id=<YOUR-VPC-ID-HERE>"

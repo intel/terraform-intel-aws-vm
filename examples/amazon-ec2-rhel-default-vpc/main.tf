@@ -1,4 +1,4 @@
-# Provision EC2 Instance on Icelake on Amazon Linux OS in default vpc. It is configured to create the EC2 in
+# Provision EC2 Instance on Granite Rapids on Amazon Linux OS in default vpc. It is configured to create the EC2 in
 # US-East-1 region. The region is provided in variables.tf in this example folder.
 
 # This example also create an EC2 key pair. Associate the public key with the EC2 instance. Create the private key
@@ -47,10 +47,11 @@ resource "aws_network_interface_sg_attachment" "sg_attachment" {
 module "ec2-vm" {
   source            = "intel/aws-vm/intel"
   key_name          = aws_key_pair.TF_key.key_name
-  ami               = "ami-0c41531b8d18cc72b"
+  #ami               = "ami-0c41531b8d18cc72b"
+  ami = "vmi-intel-base-ubuntu22-aws-spr-2025-05-23-20-24"
   tags = {
     Name     = "my-test-vm-${random_id.rid.dec}"
-    Owner    = "OwnerName-${random_id.rid.dec}",
+    Owner    = "Owner-${random_id.rid.dec}"
     Duration = "2"
   }
 }

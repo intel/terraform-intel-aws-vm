@@ -10,10 +10,10 @@
 
 ## AWS VM module
 
-Configuration in this directory creates an AWS VM (EC2 Instance). The instance is created on an 4th generation Intel® Xeon® Scalable Processor (Sapphire Rapids) by default. 
+As of today, M8i instances are available on AWS which provide high-performance compute with the latest Intel processors and enhanced memory bandwidth. Configuration in this directory creates an AWS VM (EC2 Instance). The instance is created on an 6th generation Intel® Xeon® Scalable Processor (Granite Rapids) by default. 
 
 ## Performance Data
-
+### Below performance data is for Sapphire Rapids and Granite Rapids will be coming soon.. 
 
 <center>
 
@@ -217,7 +217,7 @@ No modules.
 | <a name="input_iam_role_tags"></a> [iam\_role\_tags](#input\_iam\_role\_tags) | A map of additional tags to add to the IAM role/profile created | `map(string)` | `{}` | no |
 | <a name="input_iam_role_use_name_prefix"></a> [iam\_role\_use\_name\_prefix](#input\_iam\_role\_use\_name\_prefix) | Determines whether the IAM role name (`iam_role_name` or `name`) is used as a prefix | `bool` | `true` | no |
 | <a name="input_instance_initiated_shutdown_behavior"></a> [instance\_initiated\_shutdown\_behavior](#input\_instance\_initiated\_shutdown\_behavior) | Shutdown behavior for the instance. Amazon defaults this to stop for EBS-backed instances and terminate for instance-store instances. Cannot be set on instance-store instance | `string` | `null` | no |
-| <a name="input_instance_type"></a> [instance\_type](#input\_instance\_type) | Instance SKU, see comments above for guidance | `string` | `"m7i.large"` | no |
+| <a name="input_instance_type"></a> [instance\_type](#input\_instance\_type) | Instance SKU, see comments above for guidance | `string` | `"m8i.large"` | no |
 | <a name="input_ipv6_address_count"></a> [ipv6\_address\_count](#input\_ipv6\_address\_count) | A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet | `number` | `null` | no |
 | <a name="input_ipv6_addresses"></a> [ipv6\_addresses](#input\_ipv6\_addresses) | Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface | `list(string)` | `null` | no |
 | <a name="input_key_name"></a> [key\_name](#input\_key\_name) | Key name of the Key Pair to use for the instance; which can be managed using the `aws_key_pair` resource | `string` | `null` | no |
